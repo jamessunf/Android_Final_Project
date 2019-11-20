@@ -1,0 +1,72 @@
+<resources>
+
+    <string name="app_name" translatable="false">My App</string>
+    <string name="hello_message" translatable="false">Hello cccc Android World!</string>
+    <string name="ButtonText" translatable="false">I\'m a button</string>
+
+    <string name="title" translatable="false">Look at my GUI</string>
+    <string name="ButtonClick" translatable="false">CLICK HERE</string>
+    <string name="CheckBox" translatable="false">Check this out!</string>
+    <string name="flagName" translatable="false">Canada</string>
+    <string name="SwitchName" translatable="false">Switch On/Off</string>
+    <string name="hint" translatable="false">Type here</string>
+    <string name="Input" translatable="false">input</string>
+    <string name="flg" translatable="false">flag</string>
+
+    <string name="login_email" translatable="false">Enter your email address:</string>
+    <string name="login_password" translatable="false">Type your password:</string>
+    <string name="login_btn" translatable="false">LOGIN</string>
+    <string name="weather_btn" translatable="false">Weather Forecast</string>
+    <string name="login_hint_email" translatable="false">Type email here</string>
+
+    <string name="profile_title" translatable="false">Your profile</string>
+    <string name="profile_name" translatable="false">Your name:</string>
+    <string name="profile_email" translatable="false">Your email:</string>
+    <string name="profile_picture" translatable="false">Your picture:</string>
+    <string name="profile_name_hint" translatable="false">Enter your name</string>
+    <string name="profile_email_hint" translatable="false">Enter your email</string>
+    <string name="profile_picture_hint" translatable="false">Click the button above to take a picture</string>
+
+    <string name="profile_button" translatable="false">Go to Chat</string>
+    <string name="btn_send" translatable="false">Send</string>
+    <string name="btn_receive" translatable="false">Receive</string>
+    <string name="hit" translatable="false">Type here...</string>
+
+    //final project
+    <string name="txt_title" translatable="false">Electric Car Charging Station Finder</string>
+    <string name="txt_lat" translatable="false">Latitude:</string>
+    <string name="txt_lon" translatable="false">Longitude:</string>
+    <string name="btn_find" translatable="false">Find</string>
+    <string name="title_activity_maps" translatable="false">Map</string>
+
+    <!-- recipe -->
+    <string name="activity_name" translatable="false">Recipe-for-you</string>
+
+    <!-- Menu Icons -->
+    <string name="menu_home" translatable="false">Home</string>
+    <string name="menu_bookmarks" translatable="false">farvorate</string>
+    <string name="menu_search" translatable="false">Search</string>
+    <string name="menu_help" translatable="false">Help</string>
+    <string name="menu_back" translatable="false">Back</string>
+    <string name="menu_unsaved" translatable="false">Save</string>
+    <string name="menu_saved" translatable="false">Unsave</string>
+
+    <!-- recipe Activity -->
+    <string name="recipe_edit_search_box" translatable="false">Search</string>
+    <string name="recipe_snackbar_message" translatable="false">Back to main page</string>
+    <string name="recipe_snackbar_button" translatable="false">Back</string>
+    <string name="recipe_toast_implementation" translatable="false">Feature not implemented yet</string>
+
+    <string name="recipe_instructions" translatable="false">
+
+        </string>
+    <string name="recipe_dialog_close" translatable="false">Close</string>
+
+
+    <string name="recipe_saved_message" translatable="false">Added to favorites</string>
+    <string name="recipe_unsaved_message" translatable="false">Removed from favorites</string>
+    <string name="recipe_link" translatable="false">Link</string>
+
+    <string name="recipe_actionbar_titles" translatable="false">likes</string>
+
+</resources>

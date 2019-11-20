@@ -1,0 +1,34 @@
+<resources>
+
+    <string name="app_name" translatable="false">Español Android</string>
+    <string name="hello_message" translatable="false">¡Hola, Android World!</string>
+    <string name="ButtonText" translatable="false">Soy un boton</string>>
+    <string name="title" translatable="false">Mira mi GUI</string>
+    <string name="ButtonClick" translatable="false">HAGA CLIC AQUÍ</string>
+    <string name="CheckBox" translatable="false">¡Mira esto!</string>
+    <string name="flagName" translatable="false">Español</string>
+    <string name="SwitchName" translatable="false">Cambiar En/Apagado</string>
+    <string name="hint" translatable="false">Escriba aquí</string>
+    <string name="Input" translatable="false">entrada</string>
+    <string name="flg" translatable="false">bandera</string>
+
+    <string name="login_email" translatable="false">Ingrese su dirección de correo electrónico:</string>
+    <string name="login_password" translatable="false">Escribe tu contraseña:</string>
+    <string name="login_btn" translatable="false">INICIAR SESIÓN</string>
+    <string name="login_hint_email" translatable="false">Escriba correo electrónico aquí</string>
+
+    <string name="profile_title" translatable="false">Tu perfil</string>
+    <string name="profile_name" translatable="false">Tu nombre:</string>
+    <string name="profile_email" translatable="false">Tu correo electrónico:</string>
+    <string name="profile_picture" translatable="false">Su imagen:</string>
+    <string name="profile_name_hint" translatable="false">Introduzca su nombre</string>
+    <string name="profile_email_hint" translatable="false">Introduce tu correo electrónico</string>
+    <string name="profile_picture_hint" translatable="false">Haz clic en el botón de arriba para tomar una foto.</string>
+
+    <string name="profile_button" translatable="false">Ir al chat</string>
+    <string name="btn_send" translatable="false">Enviar</string>
+    <string name="btn_receive" translatable="false">Recibir</string>
+    <string name="hit" translatable="false">Escriba aquí...</string>
+
+
+</resources>
