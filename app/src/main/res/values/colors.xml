@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="recipePrimary">#CC00FF</color>
+    <color name="recipePrimaryDark">#CC00FF</color>
+    <color name="recipePrimaryLight">#75a7ff</color>
+    <color name="recipeAccent">#cf5831</color>
+
+    <color name="searchPageColor">#eeF25B</color>
+
+</resources>
