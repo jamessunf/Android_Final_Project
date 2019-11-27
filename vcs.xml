@@ -18,6 +18,10 @@
           <option name="url" value="https://github.com/jamessunf/Android_Lab1.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/etorunski/InClassExamples_Fall2019.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\feng\AndroidStudioProjects" />
