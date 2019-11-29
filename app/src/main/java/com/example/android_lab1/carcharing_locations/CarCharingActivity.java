@@ -41,6 +41,8 @@ import java.util.ArrayList;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+
+
     DatabaseHelper mydb;
   //  ArrayList<EleCharging> eleAllResults, eleFavResults;
 
