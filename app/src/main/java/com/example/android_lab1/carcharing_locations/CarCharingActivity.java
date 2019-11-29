@@ -45,7 +45,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 //
 
     DatabaseHelper mydb;
-  //  ArrayList<EleCharging> eleAllResults, eleFavResults;
+    ArrayList<EleCharging>  eleHistry = new ArrayList<>();
 
     EleCharging eleSelectLoction;
 
@@ -201,7 +201,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 return true;
             case R.id.popup_save:
-                boolean isSave = mydb.insertData(eleSelectLoction);
+                boolean isSave = mydb.insertFov(eleSelectLoction);
                 if(isSave) {
                     Toast.makeText(this, eleSelectLoction.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
                 }else{
@@ -238,7 +238,9 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         @Override
         protected void onPostExecute(final ArrayList<EleCharging> eleChargings) {
-            lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleChargings));
+            eleHistry = eleChargings;
+            saveHistry();
+            lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
             lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -332,8 +334,18 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
     }
 
+    private void saveHistry() {
+        boolean isSave = mydb.insertHistry(eleSelectLoction);
+        if(isSave) {
+            Toast.makeText(this, eleSelectLoction.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
+        }else{
+
+            Toast.makeText(this, eleSelectLoction.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+        }
 
 
+
+    }
 
 
 }

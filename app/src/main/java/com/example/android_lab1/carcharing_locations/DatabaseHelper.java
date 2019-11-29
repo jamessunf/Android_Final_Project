@@ -12,6 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "cLocation.db";
     private static final String TABLE_NAME = "location_table";
+    private static final String TABLE_NAME_FOV = "fov_table";
     private static final String COL_1 = "ID";
     private static final String COL_2 = "TITLE";
     private static final String COL_3 = "ADDRESS";
@@ -30,8 +31,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
 
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME_FOV + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
 
     }
 
@@ -42,7 +44,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(EleCharging eleCharging){
+    public boolean insertHistry(EleCharging eleCharging){
+
+       // SQLiteDatabase db = this.getWritableDatabase();
+       // return db.delete(TABLE_NAME,"ID=?",new String[]{id});
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,eleCharging.getLocalTitle());
@@ -54,6 +60,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         long result = db.insert(TABLE_NAME,null,contentValues);
+
+        if(result == -1)
+            return false;  //
+        else
+            return  true; //
+
+
+    }
+
+    public boolean insertFov(EleCharging eleCharging){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2,eleCharging.getLocalTitle());
+        contentValues.put(COL_3,eleCharging.getAddr());
+        contentValues.put(COL_4,eleCharging.getdLatitude());
+        contentValues.put(COL_5,eleCharging.getdLongitude());
+        contentValues.put(COL_6,eleCharging.getPhoneNumber());
+
+
+
+        long result = db.insert(TABLE_NAME_FOV,null,contentValues);
 
         if(result == -1)
             return false;  //
