@@ -3,6 +3,7 @@ package com.example.android_lab1.carcharing_locations;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,10 +56,18 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
     ProgressBar loading_locations;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charing);
+
+        Toolbar toolbar =(Toolbar) findViewById(R.id.car_toolbar);
+        toolbar.setTitle("Find Car Station");
+        setSupportActionBar(toolbar);
+
+
 
         btnFind = (Button) findViewById(R.id.btn_find);
         btnPopup = (Button) findViewById(R.id.btn_popup) ;
@@ -107,10 +116,14 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         });
     }
 
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_list,menu);
+        inflater.inflate(R.menu.car_menu,menu);
 
         return true;
     }
@@ -118,12 +131,15 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.item1:
-                Toast.makeText(this,"This is the initial message",Toast.LENGTH_SHORT).show();
+            case R.id.item_new:
+                Toast.makeText(this,"New",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item_exit:
+                Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.item4:
-                Toast.makeText(this,"You clicked on the overflow",Toast.LENGTH_SHORT).show();
+            case R.id.item_Favourites:
+                Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setIcon(R.drawable.flag);
