@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE resources [<!ENTITY recipe "recipe-for-you"><!ENTITY author "peng wang">]>
 <resources>
 
-    <string name="app_name" translatable="false">My App</string>
+    <string name="app_name" translatable="false">Graphical</string>
     <string name="hello_message" translatable="false">Hello cccc Android World!</string>
     <string name="ButtonText" translatable="false">I\'m a button</string>
 
@@ -39,34 +42,57 @@
     <string name="btn_find" translatable="false">Find</string>
     <string name="title_activity_maps" translatable="false">Map</string>
 
+
+
+
+
+
+
     <!-- recipe -->
-    <string name="activity_name" translatable="false">Recipe-for-you</string>
+    <string name="activity_name">Recipe-for-you</string>
 
     <!-- Menu Icons -->
-    <string name="menu_home" translatable="false">Home</string>
-    <string name="menu_bookmarks" translatable="false">farvorate</string>
-    <string name="menu_search" translatable="false">Search</string>
-    <string name="menu_help" translatable="false">Help</string>
-    <string name="menu_back" translatable="false">Back</string>
-    <string name="menu_unsaved" translatable="false">Save</string>
-    <string name="menu_saved" translatable="false">Unsave</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_bookmarks">farvorate</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_back">Back</string>
+    <string name="menu_unsaved">Save</string>
+    <string name="menu_saved">Unsave</string>
 
     <!-- recipe Activity -->
-    <string name="recipe_edit_search_box" translatable="false">Search</string>
-    <string name="recipe_snackbar_message" translatable="false">Back to main page</string>
-    <string name="recipe_snackbar_button" translatable="false">Back</string>
-    <string name="recipe_toast_implementation" translatable="false">Feature not implemented yet</string>
+    <string name="recipe_edit_search_box">Search</string>
+    <string name="recipe_snackbar_message">Back to main page</string>
+    <string name="recipe_snackbar_button">Back</string>
+    <string name="recipe_toast_implementation">Feature not implemented yet</string>
 
-    <string name="recipe_instructions" translatable="false">
+    <string name="recipe_instructions">
+            Activity: &recipe;\n
+            Author: &author;\n
+           Clicking on the recipe will take you to a new page with recipe details.
+            \ n
+            You can click on link to access your favorite recipes. These are your recipes that have been saved and will be from your favorite.
 
+            \ n
+            You can also click on the link  view the full text on its original website.
         </string>
-    <string name="recipe_dialog_close" translatable="false">Close</string>
+    <string name="recipe_dialog_close">Close</string>
 
 
-    <string name="recipe_saved_message" translatable="false">Added to favorites</string>
-    <string name="recipe_unsaved_message" translatable="false">Removed from favorites</string>
-    <string name="recipe_link" translatable="false">Link</string>
+    <string name="recipe_saved_message">Added to favorites</string>
+    <string name="recipe_unsaved_message">Removed from favorites</string>
+    <string name="recipe_link">Link</string>
 
-    <string name="recipe_actionbar_titles" translatable="false">likes</string>
+    <string name="recipe_actionbar_titles">likes</string>
+
+
+
+
+
+
+
+    <!--Feng-->
+    <string name="car_title_hint" translatable="false">Please input your location to find stations:</string>
+
 
 </resources>

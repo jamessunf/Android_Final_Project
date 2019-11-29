@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/item1"
+        android:title="Item 1"
+        android:icon="@drawable/m_car"
+        app:showAsAction="always"/>
+    <item android:id="@+id/item2"
+        android:title="Item 1"
+        android:icon="@drawable/m_forex"
+        app:showAsAction="always"/>
+    <item android:id="@+id/item3"
+        android:title="Item 1"
+        android:icon="@drawable/m_recipe"
+        app:showAsAction="always"/>
+    <item android:id="@+id/item4"
+        android:title="Item 1"
+        android:icon="@drawable/m_news"
+        app:showAsAction="always"/>
+
+
+
+    <item android:id="@+id/item_1"
+        android:title="Find Car Stations"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_2"
+        android:title="Find Forex"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_3"
+        android:title="Find Recipe"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_4"
+        android:title="Fid News"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_5"
+        android:title="Help"/>
+
+</menu>
