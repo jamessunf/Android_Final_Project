@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeSingleActivity"
-    android:id="@+id/relative_root_layout">
+    tools:context=".recipe.RecipeSingleActivity"
+    android:id="@+id/fragmentLocation">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
