@@ -42,7 +42,7 @@ import java.util.ArrayList;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
-//
+//delete
 
     DatabaseHelper mydb;
     ArrayList<EleCharging>  eleHistry = new ArrayList<>();
