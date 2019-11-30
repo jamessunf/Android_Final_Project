@@ -36,8 +36,6 @@
     <string name="hit" translatable="false">Type here...</string>
 
 
-
-
     <!-- recipe -->
     <string name="activity_name" translatable="false">Recipe-for-you</string>
 
@@ -89,6 +87,11 @@
     <string name="help_name" translatable="false">Autors name: Feng Sun</string>
     <string name="help_version" translatable="false">Version:1.2.0</string>
     <string name="help_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">How to use Electric Car Charging Station Data interface</a></string>
+
+
+    <string name="project_name" translatable="false">Autors name: Feng Sun, WeiDong Yang,  </string>
+    <string name="project_version" translatable="false">Version:1.0.0</string>
+    <string name="project_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">How to use Electric Car Charging Station Data interface</a></string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

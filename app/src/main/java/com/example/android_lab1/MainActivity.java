@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android_lab1.carcharing_locations.CarCharingActivity;
+import com.example.android_lab1.carcharing_locations.EmptyActivity;
 import com.example.android_lab1.forex.forexActivity;
 import com.example.android_lab1.recipe.RecipeMainActivity;
 
@@ -109,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openHelp() {
+        //Intent intent = new Intent(MainActivity.this, EmptyActivity.class);
+       // startActivity(intent);
         Toast.makeText(this,"Help",Toast.LENGTH_SHORT).show();
     }
 

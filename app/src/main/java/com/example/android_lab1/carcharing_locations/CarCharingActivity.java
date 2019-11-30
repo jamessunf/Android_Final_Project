@@ -220,6 +220,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
             case R.id.item_help:
 
                 Intent intent = new Intent(CarCharingActivity.this,EmptyActivity.class);
+
+                intent.putExtra("is_main_help","y");
                 startActivity(intent);
                 return true;
 
