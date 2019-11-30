@@ -66,7 +66,7 @@ public class CarCharingListAdapter extends BaseAdapter {
 
 
              holder.txtTitle.setText("Location:" + eleChargings.get(position).getLocalTitle() + "  Address:" + eleChargings.get(position).getAddr());
-             holder.txtLocation.setText("Lat:" + Double.toString(eleChargings.get(position).getdLatitude()) + " Lon:" + Double.toString(eleChargings.get(position).getdLongitude()));
+             holder.txtLocation.setText("Lat:" + eleChargings.get(position).getdLatitude() + " Lon:" + eleChargings.get(position).getdLongitude());
              holder.txtPhone.setText("Phone:" + eleChargings.get(position).getPhoneNumber());
 
 

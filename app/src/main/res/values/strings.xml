@@ -43,11 +43,6 @@
     <string name="title_activity_maps" translatable="false">Map</string>
 
 
-
-
-
-
-
     <!-- recipe -->
     <string name="activity_name">Recipe-for-you</string>
 
@@ -84,11 +79,6 @@
     <string name="recipe_link">Link</string>
 
     <string name="recipe_actionbar_titles">likes</string>
-
-
-
-
-
 
 
     <!--Feng-->

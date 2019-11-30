@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
@@ -77,6 +79,23 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         loading_locations = (ProgressBar) findViewById(R.id.loading_locations);
 
         mydb = new DatabaseHelper(this);
+
+        eleHistry = mydb.getAllData();
+
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
+
+        lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                eleSelectLoction = eleHistry.get(i);
+
+                Toast.makeText(CarCharingActivity.this,eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
+
+                showPopup(view);
+
+            }
+        });
 
 
 
@@ -219,6 +238,9 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         }
     }
 
+//************************************Async Task*********************************************************************************
+//************************************Async Task*********************************************************************************
+
 
     private class HttpUtil extends AsyncTask<String,Integer,ArrayList<EleCharging>>{
 
@@ -238,21 +260,13 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         @Override
         protected void onPostExecute(final ArrayList<EleCharging> eleChargings) {
-            eleHistry = eleChargings;
-            saveHistry();
+
+            saveHistry(eleChargings);
+            eleHistry = mydb.getAllData();
+
             lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
-            lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                    eleSelectLoction = eleChargings.get(i);
 
-                    Toast.makeText(CarCharingActivity.this,eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
-
-                    showPopup(view);
-
-            }
-            });
 
 
 
@@ -302,8 +316,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                        eleChargings.add(new EleCharging(addressInfo.getString("Title"),
                                                         addressInfo.getString("AddressLine1"),
-                                                        addressInfo.getDouble("Latitude"),
-                                                        addressInfo.getDouble("Longitude"),
+                                                        Double.toString(addressInfo.getDouble("Latitude")),
+                                                        Double.toString(addressInfo.getDouble("Longitude")),
                                                         addressInfo.getString("ContactTelephone1")));
 
                 }
@@ -312,8 +326,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 for(int i=0;i<eleChargings.size();i++){
                     Log.i("title:",eleChargings.get(i).getLocalTitle());
                     Log.i("title:",eleChargings.get(i).getAddr());
-                    Log.i("Lon:",Double.toString(eleChargings.get(i).getdLongitude()));
-                    Log.i("Lat:",Double.toString(eleChargings.get(i).getdLatitude()));
+                  //  Log.i("Lon:",Double.toString(eleChargings.get(i).getdLongitude()));
+                  //  Log.i("Lat:",Double.toString(eleChargings.get(i).getdLatitude()));
                     Log.i("Phone:",eleChargings.get(i).getPhoneNumber());
 
                 }
@@ -334,16 +348,34 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
     }
 
-    private void saveHistry() {
-        boolean isSave = mydb.insertHistry(eleSelectLoction);
-        if(isSave) {
-            Toast.makeText(this, eleSelectLoction.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
-        }else{
+    private void saveHistry(ArrayList<EleCharging> arrEle) {
 
-            Toast.makeText(this, eleSelectLoction.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+        mydb.deleteAll();
+
+
+        Iterator<EleCharging> iterator = arrEle.iterator();
+
+        while (iterator.hasNext()){
+
+            saveData(iterator.next());
         }
 
+    }
 
+
+
+
+
+
+    private void saveData(EleCharging ele){
+
+        boolean isSave = mydb.insertHistry(ele);
+        if(isSave) {
+            Toast.makeText(this, ele.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
+        }else{
+
+            Toast.makeText(this, ele.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

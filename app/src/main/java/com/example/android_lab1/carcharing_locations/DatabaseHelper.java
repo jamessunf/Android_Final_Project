@@ -92,25 +92,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<EleCharging> getAllData(){
 
-        ArrayList<EleCharging> eleChargings = null;
+        ArrayList<EleCharging> ele = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
 
         if(res.getCount() != 0){
-            eleChargings.clear();
+           // ele.clear();
             while (res.moveToNext()){
-                eleChargings.add(new EleCharging(res.getString(res.getColumnIndex("ID")),
-                        res.getString(res.getColumnIndex("TITLE")),
-                        res.getString(res.getColumnIndex("ADDRESS")),
-                        res.getString(res.getColumnIndex("LATITUDE")),
-                        res.getString(res.getColumnIndex("LONGITUDE")),
-                        res.getString(res.getColumnIndex("PHONE"))
-                        ));
+
+
+              // int id = Integer.valueOf(res.getString(res.getColumnIndex("ID")));
+               String title = res.getString(res.getColumnIndex("TITLE"));
+               String addr = res.getString(res.getColumnIndex("ADDRESS"));
+               String lat = res.getString(res.getColumnIndex("LATITUDE"));
+               String lon = res.getString(res.getColumnIndex("LONGITUDE"));
+               String phone = res.getString(res.getColumnIndex("PHONE"));
+
+               EleCharging c = new EleCharging(title,addr,lat,lon,phone);
+
+
+
+                ele.add(new EleCharging(title,addr,lat,lon,phone));
+
             }
 
         }
-        return eleChargings;
+        return ele;
 
     }
 
@@ -126,6 +134,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME,"ID=?",new String[]{id});
 
 
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "  + TABLE_NAME);
     }
 
 }
