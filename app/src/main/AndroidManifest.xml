@@ -38,6 +38,7 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".recipe.RecipeMainActivity" />
         <activity android:name=".carcharing_locations.CarCharingActivity" />
+        <activity android:name=".news.NewsMainActivity" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
