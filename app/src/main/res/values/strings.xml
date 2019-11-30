@@ -56,17 +56,49 @@
     <string name="recipe_snackbar_message" translatable="false">Back to main page</string>
     <string name="recipe_snackbar_button" translatable="false">Back</string>
     <string name="recipe_toast_implementation" translatable="false">Feature not implemented yet</string>
-
     <string name="recipe_instructions" translatable="false">
-
         </string>
     <string name="recipe_dialog_close" translatable="false">Close</string>
-
-
     <string name="recipe_saved_message" translatable="false">Added to favorites</string>
     <string name="recipe_unsaved_message" translatable="false">Removed from favorites</string>
     <string name="recipe_link" translatable="false">Link</string>
-
     <string name="recipe_actionbar_titles" translatable="false">likes</string>
+
+
+    <!-- news Activity -->
+
+    <string name="button4_name" translatable="false">NEW YORK TIME</string>
+    <string name="group_message" translatable="false">======MADE BY======</string>
+    <string name="member4_name" translatable="false">(NEWS)</string>
+    <string name="mylist" translatable="false">MY LIST</string>
+    <string name="news_searchbtn" translatable="false">Search</string>
+    <string name="news_savebtn" translatable="false">Save</string>
+    <string name="buttonhome_name" translatable="false">Home</string>
+    <string name="heip_item_name" translatable="false">Help</string>
+    <string name="about_item_name" translatable="false">About</string>
+    <string name="project_title" translatable="false">CST2355GroupProject</string>
+    <string name="version_info" translatable="false">Demo 1.0</string>
+    <string name="m4_help_title" translatable="false">NEWYORKTIME HELP PAGE</string>
+    <string name="m4_help_message" translatable="false">This is help page for CST2355 Final Demo</string>
+    <string name="search_result" translatable="false">Search Result</string>
+    <string name="delete" translatable="false">DELETE DATA</string>
+    <string name="exit" translatable="false">Exit</string>
+    <string name="title_activity_news_web_article" translatable="false">NEWSWebArticleActivity</string>
+    <string name="favorate" translatable="false">favorate</string>
+    <string name="line_id" translatable="false">line id</string>
+    <string name="Removed_from_database" translatable="false">Removed from database</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

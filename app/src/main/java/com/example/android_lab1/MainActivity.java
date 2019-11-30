@@ -9,6 +9,8 @@ import android.widget.ImageView;
 
 import com.example.android_lab1.carcharing_locations.CarCharingActivity;
 import com.example.android_lab1.forex.forexActivity;
+
+import com.example.android_lab1.news.NewsMainActivity;
 import com.example.android_lab1.recipe.RecipeMainActivity;
 
 
@@ -59,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openNews() {
-       // Intent intent = new Intent(this, newsActivity.class);
-       // startActivity(intent);
+       Intent intent = new Intent(this, NewsMainActivity.class);
+       startActivity(intent);
     }
 
     private void openForex() {
