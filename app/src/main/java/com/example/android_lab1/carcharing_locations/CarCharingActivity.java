@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.android_lab1.R;
 import com.example.android_lab1.forex.forexActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +44,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static com.google.android.material.snackbar.Snackbar.*;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
@@ -79,6 +84,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         edtLon = (EditText) findViewById(R.id.edt_lon);
         loading_locations = (ProgressBar) findViewById(R.id.loading_locations);
 
+
+
         mydb = new DatabaseHelper(this);
 
         renewData();
@@ -110,6 +117,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
             public void onClick(View view) {
 
                 if (edtLat.getText().toString().trim().length() != 0 && edtLon.getText().toString().trim().length() != 0){
+
+                    Snackbar.make(view,"System is finding 10 locations near you!",Snackbar.LENGTH_LONG).show();
 
                     String dLat = edtLat.getText().toString();
                     String dLon = edtLon.getText().toString();
@@ -180,9 +189,32 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         switch (item.getItemId()){
             case R.id.item_new:
-                Toast.makeText(this,"New",Toast.LENGTH_SHORT).show();
+                clickNew();
+                Toast.makeText(this,"New Search",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item_exit:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(CarCharingActivity.this);
+
+                builder.setTitle("Confirmation");
+                builder.setMessage("Do you want to quit?");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+
                 Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item_help:
@@ -191,10 +223,15 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 startActivity(intent);
                 return true;
 
-            case R.id.item_Favourites:
-                Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
+            case R.id.item_Favourites: case R.id.item_fav:
+
+                //Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
                 Intent intent1 = new Intent(CarCharingActivity.this,FavourActivity.class);
                 startActivity(intent1);
+
+               // Snackbar snackbar = Snackbar.make(CarCharingActivity,"Add to favourites.", Snackbar.LENGTH_LONG);
+               // snackbar.show();
+
                 return true;
 
 
@@ -202,6 +239,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     //******************** Pop up menu ********************
 
@@ -230,31 +269,36 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
             case R.id.popup_save:
                 boolean isSave = mydb.insertFov(eleSelectLoction);
                 if(isSave) {
-                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + " is saved to favourites.", Toast.LENGTH_SHORT).show();
                 }else{
 
-                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + " can not save to favourites.", Toast.LENGTH_SHORT).show();
                 }
 
                 return true;
             case R.id.popup_delete:
                 mydb.deleteData(eleSelectLoction.getLocalTitle());
                 renewData();
-                Toast.makeText(this,"Delete Location",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Delete Location" + eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.popup_dec:
 
-                Bundle dataToPass = new Bundle();
-                dataToPass.putString("title", eleSelectLoction.getLocalTitle());
-                dataToPass.putString("address", eleSelectLoction.getAddr());
-                dataToPass.putString("lat", eleSelectLoction.getdLatitude());
-                dataToPass.putString("lon", eleSelectLoction.getdLongitude());
-                dataToPass.putString("phone", eleSelectLoction.getPhoneNumber());
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(CarCharingActivity.this);
 
-                Intent nextActivity = new Intent(CarCharingActivity.this, EmptyActivity.class);
-                nextActivity.putExtras(dataToPass); //send data to next activity
-                startActivityForResult(nextActivity, 345); //make the transition
+                builder.setTitle("Location Detail:");
+                builder.setMessage("Location Title:" + eleSelectLoction.getLocalTitle() + "Address:" + eleSelectLoction.getAddr() + "Location Latitude:" +
+                                    eleSelectLoction.getdLatitude() + "Location Longitude" + eleSelectLoction.getdLongitude() + "Location phone number:" +
+                                    eleSelectLoction.getPhoneNumber());
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+              builder.show();
 
                 return true;
             default:
@@ -394,10 +438,10 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         boolean isSave = mydb.insertHistry(ele);
         if(isSave) {
-            Toast.makeText(this, ele.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ele.getLocalTitle() + " is found.", Toast.LENGTH_SHORT).show();
         }else{
 
-            Toast.makeText(this, ele.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ele.getLocalTitle() + "can not save to database.", Toast.LENGTH_SHORT).show();
         }
 
     }
