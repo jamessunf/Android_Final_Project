@@ -3,9 +3,13 @@ package com.example.android_lab1.carcharing_locations;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.android_lab1.R;
 import com.example.android_lab1.forex.forexActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,19 +43,27 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import static android.widget.Toast.LENGTH_LONG;
+import static com.google.android.material.snackbar.Snackbar.*;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+//delete
+
     DatabaseHelper mydb;
-  //  ArrayList<EleCharging> eleAllResults, eleFavResults;
+    ArrayList<EleCharging>  eleHistry = new ArrayList<>();
 
     EleCharging eleSelectLoction;
 
 
-    Button btnFind,btnPopup;
+    Button btnFind,btnNew;
     ListView lstResults;
     EditText edtLat,edtLon;
     ProgressBar loading_locations;
+
+
 
 
     @Override
@@ -58,24 +71,46 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charing);
 
+        Toolbar toolbar =(Toolbar) findViewById(R.id.car_toolbar);
+        toolbar.setTitle("Find Car Station");
+        setSupportActionBar(toolbar);
+
+
+
         btnFind = (Button) findViewById(R.id.btn_find);
-        btnPopup = (Button) findViewById(R.id.btn_popup) ;
+        btnNew = (Button) findViewById(R.id.btn_new) ;
         lstResults = (ListView) findViewById(R.id.lst_results);
         edtLat =(EditText) findViewById(R.id.edt_lat);
         edtLon = (EditText) findViewById(R.id.edt_lon);
         loading_locations = (ProgressBar) findViewById(R.id.loading_locations);
 
+
+
         mydb = new DatabaseHelper(this);
 
-
-
-
-        btnPopup.setOnClickListener(new View.OnClickListener() {
+        renewData();
+        btnNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopup(view);
+
+                clickNew();
             }
         });
+
+        lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                eleSelectLoction = eleHistry.get(i);
+
+                Toast.makeText(CarCharingActivity.this,eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
+
+                showPopup(view);
+
+            }
+        });
+
+
 
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +118,18 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 if (edtLat.getText().toString().trim().length() != 0 && edtLon.getText().toString().trim().length() != 0){
 
+                    Snackbar.make(view,"System is finding 10 locations near you!",Snackbar.LENGTH_LONG).show();
+
                     String dLat = edtLat.getText().toString();
                     String dLon = edtLon.getText().toString();
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("input_location",MODE_PRIVATE);
+                    SharedPreferences.Editor myInput = sharedPreferences.edit();
+                    myInput.putString("lat",dLat);
+                    myInput.putString("lon",dLon);
+                    myInput.commit();
+
+
                     loading_locations.setVisibility(View.VISIBLE);
 
                     String[] str = {"https://api.openchargemap.io/v3/poi/?output=json&countrycode=CA&latitude=" + dLat + "&longitude=" + dLon + "&maxresults=10"};
@@ -105,10 +150,37 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         });
     }
 
+    private void clickNew() {
+
+        edtLat.setText("");
+        edtLon.setText("");
+
+        mydb.deleteAll();
+        eleHistry = mydb.getAllData();
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry,false));
+
+    }
+
+    private void renewData() {
+
+        eleHistry = mydb.getAllData();
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry,false));
+        readPreferences();
+    }
+
+    private void readPreferences(){
+        SharedPreferences sh = getSharedPreferences("input_location",MODE_PRIVATE);
+        edtLat.setText(sh.getString("lat",""));
+        edtLon.setText(sh.getString("lon",""));
+
+    }
+
+//**********************Menu**********************************************
+//**********************Menu**********************************************
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_list,menu);
+        inflater.inflate(R.menu.car_menu,menu);
 
         return true;
     }
@@ -116,29 +188,22 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.item1:
-                Toast.makeText(this,"This is the initial message",Toast.LENGTH_SHORT).show();
+            case R.id.item_new:
+                clickNew();
+                Toast.makeText(this,"New Search",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.item_exit:
 
-            case R.id.item4:
-                Toast.makeText(this,"You clicked on the overflow",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(CarCharingActivity.this);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.drawable.flag);
-                builder.setTitle("What is your new message?");
+                builder.setTitle("Confirmation");
+                builder.setMessage("Do you want to quit?");
 
-                // Set up the input
-                final EditText input = new EditText(this);
-                input.setHint("Type here");
-                input.setTextSize(25);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
-
-                // Set up the buttons
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                      //  m_Text = input.getText().toString();
+                        finish();
+
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -150,6 +215,25 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 builder.show();
 
+                Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item_help:
+
+                Intent intent = new Intent(CarCharingActivity.this,EmptyActivity.class);
+
+                intent.putExtra("is_main_help","y");
+                startActivity(intent);
+                return true;
+
+            case R.id.item_Favourites: case R.id.item_fav:
+
+                //Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(CarCharingActivity.this,FavourActivity.class);
+                startActivity(intent1);
+
+               // Snackbar snackbar = Snackbar.make(CarCharingActivity,"Add to favourites.", Snackbar.LENGTH_LONG);
+               // snackbar.show();
+
                 return true;
 
 
@@ -157,6 +241,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     //******************** Pop up menu ********************
 
@@ -183,23 +269,48 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 return true;
             case R.id.popup_save:
-                boolean isSave = mydb.insertData(eleSelectLoction);
+                boolean isSave = mydb.insertFov(eleSelectLoction);
                 if(isSave) {
-                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + "is Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + " is saved to favourites.", Toast.LENGTH_SHORT).show();
                 }else{
 
-                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + "isn't Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, eleSelectLoction.getLocalTitle() + " can not save to favourites.", Toast.LENGTH_SHORT).show();
                 }
 
                 return true;
             case R.id.popup_delete:
-                Toast.makeText(this,"Delete Location",Toast.LENGTH_SHORT).show();
+                mydb.deleteData(eleSelectLoction.getLocalTitle());
+                renewData();
+                Toast.makeText(this,"Delete Location" + eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.popup_dec:
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(CarCharingActivity.this);
+
+                builder.setTitle("Location Detail:");
+                builder.setMessage("Location Title:" + eleSelectLoction.getLocalTitle() + "Address:" + eleSelectLoction.getAddr() + "Location Latitude:" +
+                                    eleSelectLoction.getdLatitude() + "Location Longitude" + eleSelectLoction.getdLongitude() + "Location phone number:" +
+                                    eleSelectLoction.getPhoneNumber());
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+              builder.show();
+
                 return true;
             default:
                 return  false;
 
         }
     }
+
+//************************************Async Task*********************************************************************************
+//************************************Async Task*********************************************************************************
 
 
     private class HttpUtil extends AsyncTask<String,Integer,ArrayList<EleCharging>>{
@@ -220,19 +331,11 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         @Override
         protected void onPostExecute(final ArrayList<EleCharging> eleChargings) {
-            lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleChargings));
-            lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                    eleSelectLoction = eleChargings.get(i);
+            saveHistry(eleChargings);
+            renewData();
 
-                    Toast.makeText(CarCharingActivity.this,eleSelectLoction.getLocalTitle(),Toast.LENGTH_SHORT).show();
 
-                    showPopup(view);
-
-            }
-            });
 
 
 
@@ -282,8 +385,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                        eleChargings.add(new EleCharging(addressInfo.getString("Title"),
                                                         addressInfo.getString("AddressLine1"),
-                                                        addressInfo.getDouble("Latitude"),
-                                                        addressInfo.getDouble("Longitude"),
+                                                        Double.toString(addressInfo.getDouble("Latitude")),
+                                                        Double.toString(addressInfo.getDouble("Longitude")),
                                                         addressInfo.getString("ContactTelephone1")));
 
                 }
@@ -292,8 +395,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 for(int i=0;i<eleChargings.size();i++){
                     Log.i("title:",eleChargings.get(i).getLocalTitle());
                     Log.i("title:",eleChargings.get(i).getAddr());
-                    Log.i("Lon:",Double.toString(eleChargings.get(i).getdLongitude()));
-                    Log.i("Lat:",Double.toString(eleChargings.get(i).getdLatitude()));
+                  //  Log.i("Lon:",Double.toString(eleChargings.get(i).getdLongitude()));
+                  //  Log.i("Lat:",Double.toString(eleChargings.get(i).getdLatitude()));
                     Log.i("Phone:",eleChargings.get(i).getPhoneNumber());
 
                 }
@@ -314,8 +417,36 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
     }
 
+    private void saveHistry(ArrayList<EleCharging> arrEle) {
+
+        mydb.deleteAll();
 
 
+        Iterator<EleCharging> iterator = arrEle.iterator();
+
+        while (iterator.hasNext()){
+
+            saveData(iterator.next());
+        }
+
+    }
+
+
+
+
+
+
+    private void saveData(EleCharging ele){
+
+        boolean isSave = mydb.insertHistry(ele);
+        if(isSave) {
+            Toast.makeText(this, ele.getLocalTitle() + " is found.", Toast.LENGTH_SHORT).show();
+        }else{
+
+            Toast.makeText(this, ele.getLocalTitle() + "can not save to database.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
 }

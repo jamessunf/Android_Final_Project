@@ -10,7 +10,7 @@ import com.example.android_lab1.R;
 
 
 public class RecipeSingleActivity extends AppCompatActivity {
-    public static final String FRAGMENT_TAG = "articleFragment";
+
     boolean saved;
 
     @Override
@@ -26,7 +26,7 @@ public class RecipeSingleActivity extends AppCompatActivity {
         fragment.setTablet(false);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.frame_article, fragment)
+                .replace(R.id.fragmentLocation, fragment)
                 .commit();
     }
 

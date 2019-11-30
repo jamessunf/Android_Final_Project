@@ -2,18 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <item android:id="@+id/popup_map"
+    <item android:id="@+id/favour_map"
         android:title="Load directions in google map"
         app:showAsAction="never"/>
-    <item android:id="@+id/popup_dec"
-        android:title="Station Detail"
-        app:showAsAction="never"/>
-    <item android:id="@+id/popup_save"
-        android:title="Save location to favourites"
-        app:showAsAction="never"/>
 
-    <item android:id="@+id/popup_delete"
+
+    <item android:id="@+id/favour_delete"
         android:title="Delete this location"
         app:showAsAction="never"/>
 

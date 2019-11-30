@@ -5,11 +5,13 @@ public class EleCharging {
     private String localTitle;
     private String addr;
 
-    private double dLatitude;
-    private double dLongitude;
+    private String dLatitude;
+    private String dLongitude;
     private String phoneNumber;
 
-    public EleCharging(String localTitle, String addr, double dLatitude, double dLongitude, String phoneNumber) {
+
+    public EleCharging(String localTitle, String addr, String dLatitude, String dLongitude, String phoneNumber) {
+
         this.localTitle = localTitle;
         this.addr = addr;
         this.dLatitude = dLatitude;
@@ -17,13 +19,29 @@ public class EleCharging {
         this.phoneNumber = phoneNumber;
     }
 
-    public EleCharging(String id, String localTitle, String addr, String dLatitude, String dLongitude, String phoneNumber) {
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
         this.id = id;
-        this.localTitle = localTitle;
-        this.addr = addr;
-        this.dLatitude = Double.valueOf(dLatitude);
-        this.dLongitude = Double.valueOf(dLongitude);
-        this.phoneNumber = phoneNumber;
+    }
+
+    public String getdLatitude() {
+        return dLatitude;
+    }
+
+    public void setdLatitude(String dLatitude) {
+        this.dLatitude = dLatitude;
+    }
+
+    public String getdLongitude() {
+        return dLongitude;
+    }
+
+    public void setdLongitude(String dLongitude) {
+        this.dLongitude = dLongitude;
     }
 
     public String getLocalTitle() {
@@ -34,21 +52,6 @@ public class EleCharging {
         this.localTitle = localTitle;
     }
 
-    public double getdLatitude() {
-        return dLatitude;
-    }
-
-    public void setdLatitude(double dLatitude) {
-        this.dLatitude = dLatitude;
-    }
-
-    public double getdLongitude() {
-        return dLongitude;
-    }
-
-    public void setdLongitude(double dLongitude) {
-        this.dLongitude = dLongitude;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;

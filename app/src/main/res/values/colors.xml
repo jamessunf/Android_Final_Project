@@ -11,4 +11,11 @@
 
     <color name="searchPageColor">#eeF25B</color>
 
+    <!--Feng -->
+    <color name="color_1">#75a700</color>
+    <color name="color_2">#cff800</color>
+    <color name="color_3">#75a7f0</color>
+    <color name="color_4">#cff88f</color>
+
+
 </resources>

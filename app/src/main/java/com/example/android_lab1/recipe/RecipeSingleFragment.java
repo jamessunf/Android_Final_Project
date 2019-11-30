@@ -59,7 +59,7 @@ public class RecipeSingleFragment extends Fragment {
         titleBox = frameView.findViewById(R.id.text_title);
         f2f_url = frameView.findViewById(R.id.text_websit);
         social_rank = frameView.findViewById(R.id.text_content);
-        Toolbar toolbar = frameView.findViewById(R.id.toolbar);
+       Toolbar toolbar = frameView.findViewById(R.id.toolbar);
 
         //getActivity().setActionBar(toolbar);
         // getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -137,6 +137,8 @@ public class RecipeSingleFragment extends Fragment {
     }
 
     public void goToSite(View v){
+
+
         Intent webIntent = new Intent(Intent.ACTION_VIEW);
         webIntent.setData(Uri.parse(recipe.getF2f_url()));
         startActivity(webIntent);

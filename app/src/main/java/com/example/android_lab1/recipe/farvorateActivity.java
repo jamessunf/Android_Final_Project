@@ -41,7 +41,7 @@ public class farvorateActivity extends AppCompatActivity {
        // getActionBar().setDisplayHomeAsUpEnabled(true);
         dbm = DBManager.getInstance(this);
         recipes = dbm.getRecipes(RecipeDBO.FAVOURITE_TABLE);
-        tablet = findViewById(R.id.frame_article) != null;
+        tablet = findViewById(R.id.fragmentLocation) != null;
 
 
         for(Recipe recipe : recipes){
@@ -63,12 +63,33 @@ public class farvorateActivity extends AppCompatActivity {
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-        Intent intent = new Intent(farvorateActivity.this, RecipeSingleActivity.class);
-        Bundle data = recipes.get(position).makeBundle();
-        data.putInt("position", position);
-        intent.putExtras(data);
-        startActivityForResult(intent, VIEW_ARTICLE);
 
+
+        Bundle data = new Bundle();
+        Recipe recipe = (Recipe)parent.getItemAtPosition(position);
+        data.putString(Recipe.TITLE,recipe.getTitle());
+        data.putString(Recipe.IMAGE_URL,recipe.getImage_url());
+
+        if(tablet){
+
+            RecipeSingleFragment fragment = new RecipeSingleFragment();
+            fragment.setArguments(data);
+            fragment.setTablet(false);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentLocation, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
+
+        }else {
+            Intent intent = new Intent(farvorateActivity.this, RecipeSingleActivity.class);
+             data = recipes.get(position).makeBundle();
+            data.putInt("position", position);
+            intent.putExtras(data);
+            startActivityForResult(intent, VIEW_ARTICLE);
+        }
     }
 
     @Override

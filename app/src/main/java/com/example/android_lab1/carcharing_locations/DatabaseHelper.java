@@ -12,6 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "cLocation.db";
     private static final String TABLE_NAME = "location_table";
+    private static final String TABLE_NAME_FOV = "fov_table";
     private static final String COL_1 = "ID";
     private static final String COL_2 = "TITLE";
     private static final String COL_3 = "ADDRESS";
@@ -30,19 +31,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
 
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
+        sqLiteDatabase.execSQL("create table " + TABLE_NAME_FOV + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT,ADDRESS TEXT,LATITUDE TEXT,LONGITUDE TEXT,PHONE TEXT)");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop table if exists " + TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists " + TABLE_NAME_FOV);
         onCreate(sqLiteDatabase);
 
     }
 
-    public boolean insertData(EleCharging eleCharging){
+    public boolean insertHistry(EleCharging eleCharging){
+
+       // SQLiteDatabase db = this.getWritableDatabase();
+       // return db.delete(TABLE_NAME,"ID=?",new String[]{id});
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,eleCharging.getLocalTitle());
@@ -63,27 +70,88 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean insertFov(EleCharging eleCharging){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2,eleCharging.getLocalTitle());
+        contentValues.put(COL_3,eleCharging.getAddr());
+        contentValues.put(COL_4,eleCharging.getdLatitude());
+        contentValues.put(COL_5,eleCharging.getdLongitude());
+        contentValues.put(COL_6,eleCharging.getPhoneNumber());
+
+
+
+        long result = db.insert(TABLE_NAME_FOV,null,contentValues);
+
+        if(result == -1)
+            return false;  //
+        else
+            return  true; //
+
+
+    }
+
     public ArrayList<EleCharging> getAllData(){
 
-        ArrayList<EleCharging> eleChargings = null;
+        ArrayList<EleCharging> ele = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
 
         if(res.getCount() != 0){
-            eleChargings.clear();
+           // ele.clear();
             while (res.moveToNext()){
-                eleChargings.add(new EleCharging(res.getString(res.getColumnIndex("ID")),
-                        res.getString(res.getColumnIndex("TITLE")),
-                        res.getString(res.getColumnIndex("ADDRESS")),
-                        res.getString(res.getColumnIndex("LATITUDE")),
-                        res.getString(res.getColumnIndex("LONGITUDE")),
-                        res.getString(res.getColumnIndex("PHONE"))
-                        ));
+
+
+              // int id = Integer.valueOf(res.getString(res.getColumnIndex("ID")));
+               String title = res.getString(res.getColumnIndex("TITLE"));
+               String addr = res.getString(res.getColumnIndex("ADDRESS"));
+               String lat = res.getString(res.getColumnIndex("LATITUDE"));
+               String lon = res.getString(res.getColumnIndex("LONGITUDE"));
+               String phone = res.getString(res.getColumnIndex("PHONE"));
+
+               EleCharging c = new EleCharging(title,addr,lat,lon,phone);
+
+
+
+                ele.add(new EleCharging(title,addr,lat,lon,phone));
+
             }
 
         }
-        return eleChargings;
+        return ele;
+
+    }
+
+    public ArrayList<EleCharging> getAllFavData(){
+
+        ArrayList<EleCharging> ele = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME_FOV, null);
+
+        if(res.getCount() != 0){
+            // ele.clear();
+            while (res.moveToNext()){
+
+
+                // int id = Integer.valueOf(res.getString(res.getColumnIndex("ID")));
+                String title = res.getString(res.getColumnIndex("TITLE"));
+                String addr = res.getString(res.getColumnIndex("ADDRESS"));
+                String lat = res.getString(res.getColumnIndex("LATITUDE"));
+                String lon = res.getString(res.getColumnIndex("LONGITUDE"));
+                String phone = res.getString(res.getColumnIndex("PHONE"));
+
+                EleCharging c = new EleCharging(title,addr,lat,lon,phone);
+
+
+
+                ele.add(new EleCharging(title,addr,lat,lon,phone));
+
+            }
+
+        }
+        return ele;
 
     }
 
@@ -94,11 +162,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public long deleteData (String id){
+    public long deleteData (String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME,"ID=?",new String[]{id});
+        return db.delete(TABLE_NAME,"TITLE=?",new String[]{title});
 
 
+    }
+
+    public long deleteFavData (String title){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME_FOV,"TITLE=?",new String[]{title});
+
+
+    }
+    public void deleteAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "  + TABLE_NAME);
     }
 
 }

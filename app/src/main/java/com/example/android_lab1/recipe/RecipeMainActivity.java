@@ -84,7 +84,7 @@ public class RecipeMainActivity extends AppCompatActivity {
         recipeView = findViewById(R.id.list_recipes);
         adapter = new RecipeAdapter(recipes, this);
         sp = getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE);
-        isTablet = findViewById(R.id.frame_article) != null;
+        isTablet = findViewById(R.id.fragmentLocation) != null;
         searchBox = findViewById(R.id.edit_search_box);
         searchBox.setText(sp.getString(PREFERENCE_SEARCH_TERM, ""));
         searchButton = findViewById(R.id.button_search);
@@ -122,12 +122,32 @@ public class RecipeMainActivity extends AppCompatActivity {
     }
 
     private void tORecipe(AdapterView<?> parent, View view, int position, long id){
+
+        Bundle data = new Bundle();
+        Recipe recipe = (Recipe)parent.getItemAtPosition(position);
+        data.putString(Recipe.TITLE,recipe.getTitle());
+        data.putString(Recipe.IMAGE_URL,recipe.getImage_url());
+
+        if(isTablet){
+
+            RecipeSingleFragment fragment = new RecipeSingleFragment();
+            fragment.setArguments(data);
+            fragment.setTablet(false);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentLocation, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
+
+        }else {
             Intent articleIntent = new Intent(RecipeMainActivity.this, RecipeSingleActivity.class);
-            Bundle data = recipes.get(position).makeBundle();
+             data = recipes.get(position).makeBundle();
             data.putInt("position", position);
             articleIntent.putExtras(data);
             startActivityForResult(articleIntent, VIEW_ARTICLE);
-
+        }
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE resources [<!ENTITY recipe "recipe-for-you"><!ENTITY author "peng wang">]>
 <resources>
 
-    <string name="app_name" translatable="false">My App</string>
+    <string name="app_name" translatable="false">Graphical</string>
     <string name="hello_message" translatable="false">Hello cccc Android World!</string>
     <string name="ButtonText" translatable="false">I\'m a button</string>
 
@@ -32,12 +35,6 @@
     <string name="btn_receive" translatable="false">Receive</string>
     <string name="hit" translatable="false">Type here...</string>
 
-    //final project
-    <string name="txt_title" translatable="false">Electric Car Charging Station Finder</string>
-    <string name="txt_lat" translatable="false">Latitude:</string>
-    <string name="txt_lon" translatable="false">Longitude:</string>
-    <string name="btn_find" translatable="false">Find</string>
-    <string name="title_activity_maps" translatable="false">Map</string>
 
     <!-- recipe -->
     <string name="activity_name" translatable="false">Recipe-for-you</string>
@@ -58,7 +55,14 @@
     <string name="recipe_toast_implementation" translatable="false">Feature not implemented yet</string>
 
     <string name="recipe_instructions" translatable="false">
+            Activity: &recipe;\n
+            Author: &author;\n
+           Clicking on the recipe will take you to a new page with recipe details.
+            \ n
+            You can click on link to access your favorite recipes. These are your recipes that have been saved and will be from your favorite.
 
+            \ n
+            You can also click on the link  view the full text on its original website.
         </string>
     <string name="recipe_dialog_close" translatable="false">Close</string>
 
@@ -68,5 +72,30 @@
     <string name="recipe_link" translatable="false">Link</string>
 
     <string name="recipe_actionbar_titles" translatable="false">likes</string>
+
+
+    <!--Feng-->
+    <string name="car_title" translatable="false">Find Car Station</string>
+    <string name="car_title_hint" translatable="false">Please input your location to find stations:</string>
+    <string name="car_lat" translatable="false">Lat:</string>
+    <string name="car_lon" translatable="false">Lon:</string>
+    <string name="car_find" translatable="false">Find</string>
+    <string name="car_new" translatable="false">New</string>
+
+    <string name="title_activity_maps" translatable="false">Map</string>
+
+    <string name="help_name" translatable="false">Autors name: Feng Sun</string>
+    <string name="help_version" translatable="false">Version:1.2.0</string>
+    <string name="help_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">How to use Electric Car Charging Station Data interface</a></string>
+
+
+    <string name="project_name" translatable="false">Autors name: Feng Sun, WeiDong Yang,  </string>
+    <string name="project_version" translatable="false">Version:1.0.0</string>
+    <string name="project_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">How to use Electric Car Charging Station Data interface</a></string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
 
 </resources>
