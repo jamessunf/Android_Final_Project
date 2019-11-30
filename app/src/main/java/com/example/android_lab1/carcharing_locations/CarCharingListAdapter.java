@@ -18,12 +18,15 @@ public class CarCharingListAdapter extends BaseAdapter {
     private Context myContext;
     private LayoutInflater myLayoutInflater;
     private ArrayList<EleCharging> eleChargings;
+    private boolean isFavourites;
 
 
-    public CarCharingListAdapter(Activity context, ArrayList<EleCharging> p) {
+
+    public CarCharingListAdapter(Activity context, ArrayList<EleCharging> p,boolean isfav) {
         this.myContext = context;
         this.myLayoutInflater = LayoutInflater.from(context);
         this.eleChargings = p;
+        this.isFavourites = isfav;
     }
 
     @Override
@@ -63,7 +66,11 @@ public class CarCharingListAdapter extends BaseAdapter {
              holder.txtPhone = (TextView) convertView.findViewById(R.id.txt_phone);
 
              convertView.setTag(holder);
-             holder.imgView.setImageResource(R.drawable.charging);
+
+             if(isFavourites)
+             holder.imgView.setImageResource(R.drawable.electric_station_icon);
+             else
+                 holder.imgView.setImageResource(R.drawable.electric_station_fav);
 
 
              holder.txtTitle.setText("Location:" + eleChargings.get(position).getLocalTitle() + "  Address:" + eleChargings.get(position).getAddr());

@@ -63,7 +63,7 @@ public class FavourActivity extends AppCompatActivity implements PopupMenu.OnMen
     private void renewData() {
 
         eleFavour = mydb.getAllFavData();
-        lstFavour.setAdapter(new CarCharingListAdapter(FavourActivity.this,eleFavour));
+        lstFavour.setAdapter(new CarCharingListAdapter(FavourActivity.this,eleFavour,true));
     }
 
 

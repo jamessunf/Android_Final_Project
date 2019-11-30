@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -52,7 +53,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
     EleCharging eleSelectLoction;
 
 
-    Button btnFind,btnPopup;
+    Button btnFind,btnNew;
     ListView lstResults;
     EditText edtLat,edtLon;
     ProgressBar loading_locations;
@@ -72,7 +73,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
 
         btnFind = (Button) findViewById(R.id.btn_find);
-        btnPopup = (Button) findViewById(R.id.btn_popup) ;
+        btnNew = (Button) findViewById(R.id.btn_new) ;
         lstResults = (ListView) findViewById(R.id.lst_results);
         edtLat =(EditText) findViewById(R.id.edt_lat);
         edtLon = (EditText) findViewById(R.id.edt_lon);
@@ -81,6 +82,13 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         mydb = new DatabaseHelper(this);
 
         renewData();
+        btnNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                clickNew();
+            }
+        });
 
         lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,14 +105,6 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
 
 
-
-        btnPopup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopup(view);
-            }
-        });
-
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,6 +113,14 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                     String dLat = edtLat.getText().toString();
                     String dLon = edtLon.getText().toString();
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("input_location",MODE_PRIVATE);
+                    SharedPreferences.Editor myInput = sharedPreferences.edit();
+                    myInput.putString("lat",dLat);
+                    myInput.putString("lon",dLon);
+                    myInput.commit();
+
+
                     loading_locations.setVisibility(View.VISIBLE);
 
                     String[] str = {"https://api.openchargemap.io/v3/poi/?output=json&countrycode=CA&latitude=" + dLat + "&longitude=" + dLon + "&maxresults=10"};
@@ -133,10 +141,29 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         });
     }
 
+    private void clickNew() {
+
+        edtLat.setText("");
+        edtLon.setText("");
+
+        mydb.deleteAll();
+        eleHistry = mydb.getAllData();
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry,false));
+
+    }
+
     private void renewData() {
 
         eleHistry = mydb.getAllData();
-        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry,false));
+        readPreferences();
+    }
+
+    private void readPreferences(){
+        SharedPreferences sh = getSharedPreferences("input_location",MODE_PRIVATE);
+        edtLat.setText(sh.getString("lat",""));
+        edtLon.setText(sh.getString("lon",""));
+
     }
 
 //**********************Menu**********************************************
@@ -162,7 +189,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 Intent intent = new Intent(CarCharingActivity.this,EmptyActivity.class);
                 startActivity(intent);
-
+                return true;
 
             case R.id.item_Favourites:
                 Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
@@ -229,8 +256,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 nextActivity.putExtras(dataToPass); //send data to next activity
                 startActivityForResult(nextActivity, 345); //make the transition
 
-
-
+                return true;
             default:
                 return  false;
 
