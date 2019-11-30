@@ -40,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop table if exists " + TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists " + TABLE_NAME_FOV);
         onCreate(sqLiteDatabase);
 
     }
@@ -122,6 +123,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<EleCharging> getAllFavData(){
+
+        ArrayList<EleCharging> ele = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME_FOV, null);
+
+        if(res.getCount() != 0){
+            // ele.clear();
+            while (res.moveToNext()){
+
+
+                // int id = Integer.valueOf(res.getString(res.getColumnIndex("ID")));
+                String title = res.getString(res.getColumnIndex("TITLE"));
+                String addr = res.getString(res.getColumnIndex("ADDRESS"));
+                String lat = res.getString(res.getColumnIndex("LATITUDE"));
+                String lon = res.getString(res.getColumnIndex("LONGITUDE"));
+                String phone = res.getString(res.getColumnIndex("PHONE"));
+
+                EleCharging c = new EleCharging(title,addr,lat,lon,phone);
+
+
+
+                ele.add(new EleCharging(title,addr,lat,lon,phone));
+
+            }
+
+        }
+        return ele;
+
+    }
+
     public Integer getV(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.getVersion();
@@ -129,9 +162,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public long deleteData (String id){
+    public long deleteData (String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME,"ID=?",new String[]{id});
+        return db.delete(TABLE_NAME,"TITLE=?",new String[]{title});
+
+
+    }
+
+    public long deleteFavData (String title){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME_FOV,"TITLE=?",new String[]{title});
 
 
     }

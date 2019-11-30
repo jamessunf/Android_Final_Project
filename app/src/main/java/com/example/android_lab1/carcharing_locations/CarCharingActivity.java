@@ -80,9 +80,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
         mydb = new DatabaseHelper(this);
 
-        eleHistry = mydb.getAllData();
-
-        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
+        renewData();
 
         lstResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -135,10 +133,14 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         });
     }
 
+    private void renewData() {
 
+        eleHistry = mydb.getAllData();
+        lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
+    }
 
-
-
+//**********************Menu**********************************************
+//**********************Menu**********************************************
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -156,37 +158,16 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
             case R.id.item_exit:
                 Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.item_help:
+
+                Intent intent = new Intent(CarCharingActivity.this,EmptyActivity.class);
+                startActivity(intent);
+
 
             case R.id.item_Favourites:
                 Toast.makeText(this,"Favourites",Toast.LENGTH_SHORT).show();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setIcon(R.drawable.flag);
-                builder.setTitle("What is your new message?");
-
-                // Set up the input
-                final EditText input = new EditText(this);
-                input.setHint("Type here");
-                input.setTextSize(25);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                builder.setView(input);
-
-                // Set up the buttons
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                      //  m_Text = input.getText().toString();
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                builder.show();
-
+                Intent intent1 = new Intent(CarCharingActivity.this,FavourActivity.class);
+                startActivity(intent1);
                 return true;
 
 
@@ -230,8 +211,26 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
                 return true;
             case R.id.popup_delete:
+                mydb.deleteData(eleSelectLoction.getLocalTitle());
+                renewData();
                 Toast.makeText(this,"Delete Location",Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.popup_dec:
+
+                Bundle dataToPass = new Bundle();
+                dataToPass.putString("title", eleSelectLoction.getLocalTitle());
+                dataToPass.putString("address", eleSelectLoction.getAddr());
+                dataToPass.putString("lat", eleSelectLoction.getdLatitude());
+                dataToPass.putString("lon", eleSelectLoction.getdLongitude());
+                dataToPass.putString("phone", eleSelectLoction.getPhoneNumber());
+
+
+                Intent nextActivity = new Intent(CarCharingActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(dataToPass); //send data to next activity
+                startActivityForResult(nextActivity, 345); //make the transition
+
+
+
             default:
                 return  false;
 
@@ -262,9 +261,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         protected void onPostExecute(final ArrayList<EleCharging> eleChargings) {
 
             saveHistry(eleChargings);
-            eleHistry = mydb.getAllData();
-
-            lstResults.setAdapter(new CarCharingListAdapter(CarCharingActivity.this,eleHistry));
+            renewData();
 
 
 

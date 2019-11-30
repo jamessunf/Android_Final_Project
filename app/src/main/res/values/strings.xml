@@ -71,18 +71,26 @@
             \ n
             You can also click on the link  view the full text on its original website.
         </string>
-    <string name="recipe_dialog_close">Close</string>
+    <string name="recipe_dialog_close" translatable="false">Close</string>
 
 
-    <string name="recipe_saved_message">Added to favorites</string>
-    <string name="recipe_unsaved_message">Removed from favorites</string>
-    <string name="recipe_link">Link</string>
+    <string name="recipe_saved_message" translatable="false">Added to favorites</string>
+    <string name="recipe_unsaved_message" translatable="false">Removed from favorites</string>
+    <string name="recipe_link" translatable="false">Link</string>
 
-    <string name="recipe_actionbar_titles">likes</string>
+    <string name="recipe_actionbar_titles" translatable="false">likes</string>
 
 
     <!--Feng-->
     <string name="car_title_hint" translatable="false">Please input your location to find stations:</string>
+
+    <string name="help_name" translatable="false">Autors name: Feng Sun</string>
+    <string name="help_version" translatable="false">Version:1.2.0</string>
+    <string name="help_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">How to use Electric Car Charging Station Data interface</a></string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
 
 </resources>

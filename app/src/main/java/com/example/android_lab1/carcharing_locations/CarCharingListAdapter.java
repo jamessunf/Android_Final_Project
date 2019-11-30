@@ -1,5 +1,6 @@
 package com.example.android_lab1.carcharing_locations;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ public class CarCharingListAdapter extends BaseAdapter {
     private ArrayList<EleCharging> eleChargings;
 
 
-    public CarCharingListAdapter(CarCharingActivity context, ArrayList<EleCharging> p) {
+    public CarCharingListAdapter(Activity context, ArrayList<EleCharging> p) {
         this.myContext = context;
         this.myLayoutInflater = LayoutInflater.from(context);
         this.eleChargings = p;

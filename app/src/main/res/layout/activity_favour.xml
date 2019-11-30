@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".carcharing_locations.EmptyActivity">
+    tools:context=".carcharing_locations.FavourActivity">
 
-    <FrameLayout
-        android:id="@+id/fl_container"
+    <ListView
+        android:id="@+id/lst_favour"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
