@@ -69,7 +69,7 @@ public class NewsMainActivity extends AppCompatActivity {
 
         //restore cached search string, if any
         String cachedSearchString = getPreferences(Context.MODE_PRIVATE)
-                .getString("NEWSSearchString", "");
+                .getString("NewsSearchString", "");
         ((EditText)findViewById(R.id.news_searchText)).setText(cachedSearchString);
 
         //popup message to when step in
@@ -96,7 +96,7 @@ public class NewsMainActivity extends AppCompatActivity {
 
         });
 
-        // get all article snippets from the database
+        // get all article title from the database
         db = new NewsDBHelper(this);
         searchResults = db.getAll();
 

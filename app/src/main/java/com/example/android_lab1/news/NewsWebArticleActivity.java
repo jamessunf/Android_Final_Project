@@ -46,7 +46,8 @@ public class NewsWebArticleActivity extends AppCompatActivity {
         (findViewById(R.id.news_save_article))
                 .setOnClickListener(v->{
                     NewsDBHelper db = new NewsDBHelper(NewsWebArticleActivity.this);
-                    if (db.add(titleTextView.getText().toString(), descriptionTextView.getText().toString(),
+                    if (db.add(titleTextView.getText().toString(),
+                            descriptionTextView.getText().toString(),
                             urlTextView.getText().toString())) {
                         Snackbar.make(v, "Article saved!", Snackbar.LENGTH_LONG)
                                 .show();

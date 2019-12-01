@@ -67,7 +67,7 @@ public class NewsWebArticleFragment extends Fragment {
         (result.findViewById(R.id.news_save_article))
                 .setOnClickListener(v->{
                     NewsDBHelper db = new NewsDBHelper(getActivity());
-                    if (db.add(title, url, description)) {
+                    if (db.add(title,description,url)) {
                         Snackbar.make(v, "Article saved!", Snackbar.LENGTH_LONG)
                                 .show();
                     } else {

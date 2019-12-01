@@ -19,14 +19,14 @@ public class NewsDBHelper extends SQLiteOpenHelper {
 
     //columns
     private static final String COL_TITLE = "Title";
-    private static final String COL_URL = "Url";
      private static final String COL_DESCRIPTION = "Description";
+    private static final String COL_URL = "Url";
     private static final String COL_ID = "ID";
     private static final int VERSION = 3;
 
     //queries
     private static final String CREATE_TABLE = "CREATE TABLE "+DB_TABLE+" ("
-            +COL_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_TITLE +" TEXT, "
+            +COL_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_TITLE +" TEXT, " + COL_DESCRIPTION + " TEXT,"
            + COL_URL +" TEXT);";
 
     public NewsDBHelper(Context context) {
@@ -54,7 +54,7 @@ public class NewsDBHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_TITLE, title);
         contentValues.put(COL_URL, url);
-       contentValues.put(COL_DESCRIPTION, description);
+        contentValues.put(COL_DESCRIPTION, description);
 
         long result = db.insert(DB_TABLE, null, contentValues);
 
@@ -70,6 +70,7 @@ public class NewsDBHelper extends SQLiteOpenHelper {
     public boolean delete(String title, String url, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(DB_TABLE, COL_TITLE + " = ?", new String[] {title}) > 0;
+     //   new String[] {description}) > 0;
     }
 
     //get all data
@@ -83,21 +84,15 @@ public class NewsDBHelper extends SQLiteOpenHelper {
         String url;
         String description;
         while (cursor.moveToNext()) {
-//           models.add(new NewsSearchResultModel(cursor.getString(1),
-//                   cursor.getString(2)));
-//
+          models.add(new NewsSearchResultModel(cursor.getString(1),
+                  cursor.getString(2),cursor.getString(3)));
 
-//            models.add(new NewsSearchResultModel(cursor.getString(cursor.getColumnIndex("ID")),
-//                    cursor.getString(cursor.getColumnIndex("Title")),
-//                    cursor.getString(cursor.getColumnIndex("Url")),
-//                    cursor.getString(cursor.getColumnIndex("Description"))
-////                   cursor.getString(cursor.getColumnIndex("LONGITUDE")),
-////                  cursor.getString(cursor.getColumnIndex("PHONE"))
-//            ));
 
-            title = cursor.getString(cursor.getColumnIndex("Title"));
-            description = cursor.getString(cursor.getColumnIndex("Description"));
-            url = cursor.getString(cursor.getColumnIndex("Url"));
+
+
+//            title = cursor.getString(cursor.getColumnIndex("Title"));
+//            description = cursor.getString(cursor.getColumnIndex("Description"));
+//            url = cursor.getString(cursor.getColumnIndex("Url"));
 
 
         }

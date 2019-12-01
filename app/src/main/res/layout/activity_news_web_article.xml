@@ -11,13 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"/>
+
     <TextView
-        android:id="@+id/news_article_url"
+        android:id="@+id/news_article_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"/>
+
+
     <TextView
-        android:id="@+id/news_article_description"
+        android:id="@+id/news_article_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"/>

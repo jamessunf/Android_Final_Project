@@ -46,11 +46,11 @@ public class NewsSearchResultAdapter extends BaseAdapter {
 
         ((TextView)view.findViewById(R.id.news_searchresult_title))
                 .setText(searchResults.get(position).getTitle());
-        ((TextView)view.findViewById(R.id.news_searchresult_description))
-                .setText(searchResults.get(position).getDescription());
+       ((TextView)view.findViewById(R.id.news_searchresult_description))
+               .setText(searchResults.get(position).getDescription());
 
-      ((TextView)view.findViewById(R.id.news_searchresult_url))
-              .setText(searchResults.get(position).getUrl());
+     ((TextView)view.findViewById(R.id.news_searchresult_url))
+            .setText(searchResults.get(position).getUrl());
 
         return view;
     }
