@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+<!--Feng-->
+
+    <string name="app_name" translatable="false">Graphique</string>
+<string name="car_title" translatable="false">Trouver une station de voiture</string>
+<string name="car_title_hint" translatable="false">Veuillez entrer votre position pour trouver des stations:</string>
+<string name="car_lat" translatable="false">Lat:</string>
+<string name="car_lon" translatable="false">Lon:</string>
+<string name="car_find" translatable="false">Trouver</string>
+<string name="car_new" translatable="false">Nouveau</string>
+
+<string name="title_activity_maps" translatable="false">Carte</string>
+
+<string name="help_name" translatable="false">Nom de lauteur: Feng Sun</string>
+<string name="help_version" translatable="false">Version:1.2.0</string>
+<string name="help_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">Comment utiliser l'interface de données de la station de recharge de voitures électriques</a></string>
+
+
+<string name="project_name" translatable="false">Autors name: Feng Sun, WeiDong Yang,  </string>
+<string name="project_version" translatable="false">Version:1.0.0</string>
+<string name="project_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">Comment utiliser l'interface de données de la station de recharge de voitures électriques</a></string>
+
+</resources>

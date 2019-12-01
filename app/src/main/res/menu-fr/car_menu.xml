@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/item_fav"
+        android:title="Favoris"
+        android:icon="@drawable/car_fav"
+        app:showAsAction="always"/>
+
+
+
+    <item android:id="@+id/item_new"
+        android:title="Nouvelle recherche"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_Favourites"
+        android:title="Favoris"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_help"
+        android:title="Aidez-moi"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item_exit"
+        android:title="sortie"
+        app:showAsAction="never"/>
 
 </menu>

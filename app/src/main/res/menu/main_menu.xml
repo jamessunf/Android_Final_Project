@@ -33,7 +33,6 @@
     <item android:id="@+id/item_4"
         android:title="Fid News"
         app:showAsAction="never"/>
-    <item android:id="@+id/item_5"
-        android:title="Help"/>
+
 
 </menu>

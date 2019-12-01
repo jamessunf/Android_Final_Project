@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/favour_map"
-        android:title="Load directions in google map"
+        android:title="Charger les directions sur google map"
         app:showAsAction="never"/>
 
 
     <item android:id="@+id/favour_delete"
-        android:title="Delete this location"
+        android:title="Supprimer ce lieu"
         app:showAsAction="never"/>
 
 
