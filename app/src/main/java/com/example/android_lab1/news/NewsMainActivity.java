@@ -100,6 +100,7 @@ public class NewsMainActivity extends AppCompatActivity {
         db = new NewsDBHelper(this);
         searchResults = db.getAll();
 
+        
         //set listview adapter
         adapter = new NewsSearchResultAdapter(searchResults, getApplicationContext());
         ((ListView)findViewById(R.id.news_listVie))
