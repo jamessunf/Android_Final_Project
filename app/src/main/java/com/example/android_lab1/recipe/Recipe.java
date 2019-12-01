@@ -3,6 +3,7 @@ package com.example.android_lab1.recipe;
 import android.os.Bundle;
 
 @SuppressWarnings("UnusedReturnValue")
+//
 
 public class Recipe {
     public static final String PUBLISHER = "publisher";
