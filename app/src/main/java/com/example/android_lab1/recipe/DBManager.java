@@ -4,8 +4,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
+
+/**
+ * DBManager class handles  SQLite operations
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 
 public class DBManager {
     private RecipeDBO dbo;

@@ -26,6 +26,14 @@ import com.example.android_lab1.R;
 
 
 @SuppressWarnings("FieldCanBeLocal")
+
+/**
+ * This class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 public class RecipeSingleFragment extends Fragment {
 
     private View frameView;

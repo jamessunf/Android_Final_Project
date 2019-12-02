@@ -15,6 +15,15 @@ import java.util.ArrayList;
 
 //import android.widget.Toolbar;
 
+
+/**
+ * This class hold the
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
+
 public class farvorateActivity extends AppCompatActivity {
     public static final int VIEW_ARTICLE = 109;
     private ListView list;

@@ -13,6 +13,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @SuppressWarnings({"unused","UnusedReturnValue"})
+
+/**
+ * This class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 public class ImageManager {
     public static Bitmap download(Context context, String url) {
         Bitmap image = null;

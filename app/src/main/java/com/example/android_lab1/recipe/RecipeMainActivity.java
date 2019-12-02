@@ -40,10 +40,14 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-//import android.widget.Toolbar;
-//import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-//import android.support.v4.widget.SwipeRefreshLayout;
 
+/**
+ * This class is the main recipe class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 
 public class RecipeMainActivity extends AppCompatActivity {
     public static final int VIEW_ARTICLE = 102;
@@ -295,10 +299,8 @@ public class RecipeMainActivity extends AppCompatActivity {
 
                 recipe = new Recipe(publisher,f2f_url,title,source_url,recipe_id,image_url,
                         social_rank,  publisher_url,false, 1);
-               // Log.e("RecipeMainActivity", "HashCode: "+ recipe.hashCode());
                 recipes.add(recipe);
                 recipes.get(i).setID(dbm.insertRecipe(recipe, RecipeDBO.RECIPE_TABLE));
-               // Log.i("Recipepaser", "DB ID " +  recipes.get(i).getID());
 
                 if(i >= total){
                     publishProgress(progress);

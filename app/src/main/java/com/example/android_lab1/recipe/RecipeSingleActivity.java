@@ -6,6 +6,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.android_lab1.R;
 
+/**
+ * This class hold an empty fragment
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 public class RecipeSingleActivity extends AppCompatActivity {
 
     boolean saved;
