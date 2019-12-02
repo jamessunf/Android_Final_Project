@@ -16,6 +16,7 @@ import java.util.List;
 public class NewsDBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "NEWSArticleDB";
     private static final String DB_TABLE = "Articles_Table";
+    
 
     //columns
     private static final String COL_TITLE = "Title";
