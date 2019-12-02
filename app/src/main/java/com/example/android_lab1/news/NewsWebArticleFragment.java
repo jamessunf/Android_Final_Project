@@ -6,12 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.android_lab1.R;
 import com.google.android.material.snackbar.Snackbar;
-
 //import android.support.design.widget.Snackbar;
 //import android.support.v4.app.Fragment;
 
