@@ -67,6 +67,16 @@
             android:exported="true" />
         <activity android:name=".recipe.RecipeMainActivity" />
         <activity android:name=".carcharing_locations.CarCharingActivity" />
+
+        <activity android:name=".news.NewsMainActivity" />
+
+        <activity
+            android:name=".news.NewsWebArticleActivity"
+            android:label="@string/title_activity_news_web_article"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
