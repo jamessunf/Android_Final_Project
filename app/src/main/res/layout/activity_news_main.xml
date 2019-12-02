@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".news.NewsMainActivity">
+
+<!--    <android.support.v7.widget.Toolbar-->
+<!--        android:id="@+id/toolbarm4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:title="@string/button4_name"-->
+<!--        app:titleTextAppearance="@style/TextAppearance.AppCompat"-->
+<!--        app:titleTextColor="@android:color/holo_blue_dark" />-->
+
+    <TextView
+        android:id="@+id/news_listView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="38dp"
+        android:text="" />
+
+
+
+    <ListView
+        android:id="@+id/news_listVie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/news_listView_name"
+        android:layout_above="@+id/news_searchButtonn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="6dp" />
+
+    <EditText
+        android:id="@+id/news_searchText"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="2dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toLeftOf="@+id/news_searchButtonn"
+        android:ems="10"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="460dp" />
+
+    <Button
+        android:id="@+id/news_searchButtonn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text=""
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="460dp" />
+
+
+
+</RelativeLayout>
