@@ -13,7 +13,7 @@ import com.example.android_lab1.recipe.RecipeMainActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
