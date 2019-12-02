@@ -99,9 +99,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item_4:
                 openNews();
                 return  true;
-            case R.id.item_5:
-                openHelp();
-                return  true;
+
 
 
         }
