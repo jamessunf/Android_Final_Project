@@ -8,10 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.android_lab1.R;
-
 import java.util.ArrayList;
 
 public class farvorateAdapter extends BaseAdapter {

@@ -61,7 +61,6 @@ public class DBManager {
     }
 
     public ArrayList<Recipe> getRecipes(String table){
-
         Cursor result = db.rawQuery("SELECT * FROM "+ table, null);
         ArrayList<Recipe> recipes;
         recipes = new ArrayList<>(result.getCount());

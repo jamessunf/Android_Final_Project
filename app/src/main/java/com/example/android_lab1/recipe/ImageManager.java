@@ -57,7 +57,6 @@ public class ImageManager {
             try {
                 FileInputStream fis = new FileInputStream(new File(context.getFilesDir(), fileName));
                 image = BitmapFactory.decodeStream(fis);
-
                 Log.i("ImageManager", "Image " + fileName + " was found and loaded");
             } catch (IOException e) {
             }

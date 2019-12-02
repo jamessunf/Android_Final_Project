@@ -14,18 +14,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
 import com.example.android_lab1.R;
 
-//import android.widget.Toast;
-//import android.widget.Toolbar;
+
 
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -124,7 +121,6 @@ public class RecipeSingleFragment extends Fragment {
                 resultData.putExtra("position", position);
                 resultData.putExtra(Recipe.SAVED, saved);
                 getActivity().setResult(Activity.RESULT_OK, resultData);
-              //  Log.e("RecipeSingleFragment", "Article is "+ (saved?"saved":"unsaved"));
                 getActivity().finish();
                 break;
         }
@@ -137,8 +133,6 @@ public class RecipeSingleFragment extends Fragment {
     }
 
     public void goToSite(View v){
-
-
         Intent webIntent = new Intent(Intent.ACTION_VIEW);
         webIntent.setData(Uri.parse(recipe.getF2f_url()));
         startActivity(webIntent);

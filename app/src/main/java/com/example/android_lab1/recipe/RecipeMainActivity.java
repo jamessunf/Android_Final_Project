@@ -133,7 +133,6 @@ public class RecipeMainActivity extends AppCompatActivity {
             RecipeSingleFragment fragment = new RecipeSingleFragment();
             fragment.setArguments(data);
             fragment.setTablet(false);
-
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragmentLocation, fragment)
@@ -177,7 +176,6 @@ public class RecipeMainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch(item.getItemId()) {
             case R.id.menu_home:
                 returnToMain();
