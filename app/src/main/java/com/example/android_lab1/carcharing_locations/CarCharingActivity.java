@@ -56,7 +56,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
     EditText edtLat,edtLon;
     ProgressBar loading_locations;
 
-
+  //  CoordinatorLayout coordinatorLayout;
 
 
     @Override
@@ -65,7 +65,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         setContentView(R.layout.activity_car_charing);
 
         Toolbar toolbar =(Toolbar) findViewById(R.id.car_toolbar);
-        toolbar.setTitle("Find Car Station");
+        toolbar.setTitle("Find Car Station(New)");
         setSupportActionBar(toolbar);
 
 
@@ -76,6 +76,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
         edtLat =(EditText) findViewById(R.id.edt_lat);
         edtLon = (EditText) findViewById(R.id.edt_lon);
         loading_locations = (ProgressBar) findViewById(R.id.loading_locations);
+
+      //  coordinatorLayout = (CoordinatorLayout) findViewById(R.id.c)
 
 
 
@@ -112,6 +114,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 if (edtLat.getText().toString().trim().length() != 0 && edtLon.getText().toString().trim().length() != 0){
 
                     Snackbar.make(view,"System is finding 10 locations near you!",Snackbar.LENGTH_LONG).show();
+                    Snackbar snackbar;
+
 
                     String dLat = edtLat.getText().toString();
                     String dLon = edtLon.getText().toString();
@@ -224,8 +228,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 Intent intent1 = new Intent(CarCharingActivity.this,FavourActivity.class);
                 startActivity(intent1);
 
-               // Snackbar snackbar = Snackbar.make(CarCharingActivity,"Add to favourites.", Snackbar.LENGTH_LONG);
-               // snackbar.show();
+
 
                 return true;
 

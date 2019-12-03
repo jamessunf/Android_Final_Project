@@ -15,6 +15,14 @@ import com.example.android_lab1.R;
 import java.util.ArrayList;
 
 
+
+/**
+ * adapter class
+ * @ author peng
+ * @ since 03.12.2019
+ * @ version 1.0
+ *
+ */
 public class RecipeAdapter extends BaseAdapter {
     private ArrayList<Recipe> recipes;
     private Context context;

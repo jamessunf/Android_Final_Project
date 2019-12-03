@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY recipe "菜单">
+    <!ENTITY author "鹏">
+    ]>
+<resources>
+    <string name="app_name">菜单</string>
+    <!-- recipe -->
+    <string name="activity_name">为你而来</string>
+
+    <!-- Menu Icons -->
+    <string name="menu_home">我家</string>
+    <string name="menu_bookmarks">喜欢</string>
+    <string name="menu_search">搜我</string>
+    <string name="menu_help">要帮忙吗</string>
+    <string name="menu_back">返回</string>
+    <string name="menu_unsaved">保存</string>
+    <string name="menu_saved">不保存</string>
+
+    <!-- recipe Activity -->
+    <string name="recipe_edit_search_box">搜索</string>
+    <string name="recipe_snackbar_message">返回主页</string>
+    <string name="recipe_snackbar_button">返回</string>
+    <string name="recipe_toast_implementation">没有应用</string>
+    <string name="recipe_instructions">
+            Activity: &recipe;\n
+            Author: &author;\n
+
+        单击食谱将带您进入包含食谱详细信息的新页面。您可以单击该图标以访问最喜欢的食谱。这些是你的食谱已保存，
+        并将它们从您的最喜欢的。 您也可以单击链接图标或网站名称来查看全文在其原始网站上。
+ 
+        </string>
+    <string name="recipe_dialog_close">关闭</string>
+    <string name="recipe_saved_message">添加喜好</string>
+    <string name="recipe_unsaved_message">移除喜好</string>
+    <string name="recipe_link">链接</string>
+    <string name="recipe_actionbar_titles">喜欢的</string>
+
+</resources>

@@ -58,10 +58,9 @@
             Activity: &recipe;\n
             Author: &author;\n
            Clicking on the recipe will take you to a new page with recipe details.
-            \ n
+
             You can click on link to access your favorite recipes. These are your recipes that have been saved and will be from your favorite.
 
-            \ n
             You can also click on the link  view the full text on its original website.
         </string>
     <string name="recipe_dialog_close" translatable="false">Close</string>

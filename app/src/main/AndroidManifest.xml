@@ -38,37 +38,24 @@
 
         <activity
             android:name=".carcharing_locations.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".recipe.DBManager"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.farvorateActivity"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.farvorateAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.ImageManager"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.Recipe"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.RecipeAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.RecipeDBO"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.RecipeSingleActivity"
-            android:exported="true" />
-        <activity
-            android:name=".recipe.RecipeSingleFragment"
-            android:exported="true" />
+            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".recipe.RecipeMainActivity" />
         <activity android:name=".carcharing_locations.CarCharingActivity" />
+        <activity android:name=".carcharing_locations.FavourActivity"/>
+        <activity android:name=".carcharing_locations.EmptyActivity"/>
+
+        <activity android:name=".recipe.farvorateActivity" />
+        <activity android:name=".recipe.RecipeSingleActivity" />
+
+
+        <activity android:name=".forex.forexActivity"/>
+        <activity android:name=".news.NewsMainActivity"/>
+        <activity android:name=".news.NewsWebArticleActivity"/>
         <activity android:name=".MainActivity">
+
+
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

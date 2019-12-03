@@ -9,7 +9,7 @@
 <string name="car_lat" translatable="false">Lat:</string>
 <string name="car_lon" translatable="false">Lon:</string>
 <string name="car_find" translatable="false">Trouver</string>
-<string name="car_new" translatable="false">Nouveau</string>
+<string name="car_new" translatable="false">Nouv.</string>
 
 <string name="title_activity_maps" translatable="false">Carte</string>
 

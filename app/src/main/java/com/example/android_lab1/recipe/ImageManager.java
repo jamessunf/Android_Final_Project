@@ -13,6 +13,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @SuppressWarnings({"unused","UnusedReturnValue"})
+
+/**
+ * This class control image load
+ * @ author peng
+ * @ since 03.12.2019
+ * @ version 1.0
+ *
+ */
 public class ImageManager {
     public static Bitmap download(Context context, String url) {
         Bitmap image = null;
@@ -57,7 +65,6 @@ public class ImageManager {
             try {
                 FileInputStream fis = new FileInputStream(new File(context.getFilesDir(), fileName));
                 image = BitmapFactory.decodeStream(fis);
-
                 Log.i("ImageManager", "Image " + fileName + " was found and loaded");
             } catch (IOException e) {
             }
