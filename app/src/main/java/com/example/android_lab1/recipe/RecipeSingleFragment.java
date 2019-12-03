@@ -142,7 +142,8 @@ public class RecipeSingleFragment extends Fragment {
 
     public void goToSite(View v){
         Intent webIntent = new Intent(Intent.ACTION_VIEW);
-        webIntent.setData(Uri.parse(recipe.getF2f_url()));
+       // webIntent.setData(Uri.parse(recipe.getF2f_url()));
+        webIntent.setData(Uri.parse(recipe.getSource_url()));
         startActivity(webIntent);
     }
 }
