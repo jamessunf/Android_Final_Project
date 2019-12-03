@@ -3,8 +3,14 @@ package com.example.android_lab1.recipe;
 import android.os.Bundle;
 
 @SuppressWarnings("UnusedReturnValue")
-//
 
+/**
+ * This class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 public class Recipe {
     public static final String PUBLISHER = "publisher";
     public static final String F2F_URL = "f2f_url";

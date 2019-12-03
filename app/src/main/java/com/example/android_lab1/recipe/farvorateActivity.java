@@ -7,20 +7,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.android_lab1.R;
-
 import java.util.ArrayList;
 
 //import android.widget.Toolbar;
 
+
+/**
+ * This class hold the
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
+
 public class farvorateActivity extends AppCompatActivity {
     public static final int VIEW_ARTICLE = 109;
-
     private ListView list;
     private farvorateAdapter adapter;
     private ArrayList<Recipe> recipes;
@@ -34,7 +39,6 @@ public class farvorateActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.recipe_actionbar_titles);
-        //
         setSupportActionBar(toolbar);
        //setActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -59,23 +63,18 @@ public class farvorateActivity extends AppCompatActivity {
       //  });
 
        adapter.notifyDataSetChanged();
-
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-
         Bundle data = new Bundle();
         Recipe recipe = (Recipe)parent.getItemAtPosition(position);
         data.putString(Recipe.TITLE,recipe.getTitle());
         data.putString(Recipe.IMAGE_URL,recipe.getImage_url());
 
         if(tablet){
-
             RecipeSingleFragment fragment = new RecipeSingleFragment();
             fragment.setArguments(data);
             fragment.setTablet(false);
-
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragmentLocation, fragment)

@@ -6,6 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
+/**
+ * This class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
+
 public class RecipeDBO extends SQLiteOpenHelper {
 
 

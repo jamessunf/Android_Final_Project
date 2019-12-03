@@ -8,12 +8,19 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.android_lab1.R;
-
 import java.util.ArrayList;
 
+
+
+/**
+ * This class
+ * @ author peng
+ * @ since 03.2019
+ * @ version 1.0
+ *
+ */
 public class farvorateAdapter extends BaseAdapter {
     private ArrayList<Recipe> recipes;
     private Context context;
