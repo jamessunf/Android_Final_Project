@@ -97,5 +97,29 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
+    <!--Helen-->
+    <string name="currency_help">Help</string>
+    <string name="button_change">Exchange</string>
+    <string name="button_favorite">Save to Favorite</string>
+
+    <string name="help_currency">"Author: Helen Zhang \n Version : 1.0.1 \n 2019/12/03"</string>
+    <string name="currency_fav">"MY FAV"</string>
+
+    <string name="exchange_id">"ID :"</string>
+    <string name="exchange_from">"CURRENCY 1 :"</string>
+    <string name="exchange_to">"CURRENCY 2 :"</string>
+    <string name="exchange_add">"ADD"</string>
+    <string name="exchange_delete">"DELETE"</string>
+    <string name="realtime_rate">"Realtime Rate: "</string>
+
+    <string name="one">1</string>
+    <string name="frominfo">FROM: </string>
+    <string name="toinfo">TO: </string>
+    <string name="title_activity_fav_list_frag">FavListFragActivity</string>
+    <string name="currency_exchange">Currency Exchange</string>
+
+
+    <string name="help_currrency">"Author: Helen Zhang \nVersion : 1.0.1"</string>
+    <string name="recipeWishList">My Favourite List</string>
 
 </resources>

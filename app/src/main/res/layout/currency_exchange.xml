@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarPage"
+        android:theme="@style/HeaderBar"
+        />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/my_exchange"/>
+
+    <EditText
+        android:id="@+id/convert_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:text="@string/one" />
+    <TextView
+        android:id="@+id/convert_from_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/frominfo" />
+    <Spinner
+        android:id="@+id/convert_from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/convert_to_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/toinfo" />
+    <Spinner
+        android:id="@+id/convert_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "@string/button_change" />
+
+    <TextView
+        android:id="@+id/current_from_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/textback"/>
+
+    <TextView
+        android:id="@+id/current_to_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/textback"/>
+
+    <TextView
+        android:id="@+id/convert_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/textback"/>
+
+
+    <Button
+        android:id="@+id/save_fav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "@string/button_favorite"
+        />
+
+    <TextView
+        android:id="@+id/save_info"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/textback"/>
+
+
+
+
+  </LinearLayout>

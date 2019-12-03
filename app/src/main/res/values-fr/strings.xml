@@ -3,7 +3,7 @@
 
 <!--Feng-->
 
-    <string name="app_name" translatable="false">Graphique</string>
+<string name="app_name" translatable="false">Graphique</string>
 <string name="car_title" translatable="false">Trouver une station de voiture</string>
 <string name="car_title_hint" translatable="false">Veuillez entrer votre position pour trouver des stations:</string>
 <string name="car_lat" translatable="false">Lat:</string>
@@ -21,5 +21,29 @@
 <string name="project_name" translatable="false">Autors name: Feng Sun, WeiDong Yang,  </string>
 <string name="project_version" translatable="false">Version:1.0.0</string>
 <string name="project_instructions" translatable="false"><a href="https://openchargemap.org/site/develop/api?ref=public-apis">Comment utiliser linterface de données de la station de recharge de voitures électriques</a></string>
+
+    <!--Helen-->
+    <string name="currency_help">Aidez-moi</string>
+    <string name="button_change">Échange</string>
+    <string name="button_favorite">Enregistrer dans les favoris</string>
+
+
+    <string name="currency_fav">"MON FAV"</string>
+
+    <string name="exchange_id">"ID :"</string>
+    <string name="exchange_from">"DEVISE 1 :"</string>
+    <string name="exchange_to">"DEVISE 2 :"</string>
+    <string name="exchange_add">"AJOUTER"</string>
+    <string name="exchange_delete">"SUPPRIMER"</string>
+    <string name="realtime_rate">"Taux en temps réel: "</string>
+
+    <string name="one">1</string>
+    <string name="frominfo">DE: </string>
+    <string name="toinfo">À: </string>
+    <string name="title_activity_fav_list_frag">FavListFragActivity</string>
+    <string name="currency_exchange">Échange de devises</string>
+
+    <string name="help_currency">"CST2335 FINAL \n échange de devises \n Auteure: Helen Zhang \n Version : 1.0.1"</string>
+    <string name="recipeWishList">Ma liste de favoris</string>
 
 </resources>

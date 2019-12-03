@@ -1,6 +1,5 @@
 package com.example.android_lab1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -14,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.android_lab1.carcharing_locations.CarCharingActivity;
-import com.example.android_lab1.carcharing_locations.EmptyActivity;
-import com.example.android_lab1.forex.forexActivity;
+import com.example.android_lab1.forex.CurrencyExchange;
+import com.example.android_lab1.forex.ForexActivity;
 import com.example.android_lab1.recipe.RecipeMainActivity;
 
 
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openForex() {
-        Intent intent = new Intent(this, forexActivity.class);
+        Intent intent = new Intent(this, CurrencyExchange.class);
        startActivity(intent);
     }
 

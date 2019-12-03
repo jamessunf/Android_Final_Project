@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.android_lab1.R;
 
-public class forexActivity extends AppCompatActivity {
+public class ForexActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forex);
+        setContentView(R.layout.activity_forex);//
     }
 }

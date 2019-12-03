@@ -4,16 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,7 +25,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.android_lab1.R;
-import com.example.android_lab1.forex.forexActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -44,9 +40,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import static android.widget.Toast.LENGTH_LONG;
-import static com.google.android.material.snackbar.Snackbar.*;
 
 public class CarCharingActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 

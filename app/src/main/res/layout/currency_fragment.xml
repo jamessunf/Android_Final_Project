@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_message_id"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/exchange_id"
+        android:gravity="center_vertical"/>
+
+
+    <TextView
+        android:id="@+id/tv_currency_from"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_message_id"
+        android:text="@string/exchange_from"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/tv_currency_to"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_currency_from"
+        android:text="@string/exchange_to"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/tv_realtime_rate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_currency_to"
+        android:text="@string/realtime_rate"
+        android:gravity="center_vertical"/>
+
+
+    <Button
+        android:id="@+id/btn_exchange_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exchange_delete"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

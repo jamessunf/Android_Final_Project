@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".carcharing_locations.FavourActivity"></activity>
+        <activity android:name=".forex.ActivityCurrency" />
+        <activity android:name=".carcharing_locations.FavourActivity" />
         <activity android:name=".carcharing_locations.EmptyActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -74,6 +75,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".forex.ForexActivity"/>
+        <activity android:name=".forex.CurrencyExchange"/>
+        <activity android:name=".forex.FavListActivity"/>
+        <activity android:name=".forex.FavListFragActivity"/>
+
     </application>
 
 </manifest>
