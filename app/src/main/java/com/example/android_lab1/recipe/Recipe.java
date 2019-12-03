@@ -5,9 +5,9 @@ import android.os.Bundle;
 @SuppressWarnings("UnusedReturnValue")
 
 /**
- * This class
+ * This class hold recipe varables
  * @ author peng
- * @ since 03.2019
+ * @ since 03.12.2019
  * @ version 1.0
  *
  */
