@@ -49,6 +49,7 @@
 
         <activity android:name=".forex.forexActivity"/>
         <activity android:name=".news.NewsMainActivity"/>
+        <activity android:name=".news.NewsWebArticleActivity"/>
         <activity android:name=".MainActivity">
 
 
