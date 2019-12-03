@@ -86,6 +86,8 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
 
 
 
+
+
         mydb = new DatabaseHelper(this);
 
         renewData();
@@ -231,7 +233,7 @@ public class CarCharingActivity extends AppCompatActivity implements PopupMenu.O
                 Intent intent1 = new Intent(CarCharingActivity.this,FavourActivity.class);
                 startActivity(intent1);
 
-               // Snackbar snackbar = Snackbar.make(CarCharingActivity,"Add to favourites.", Snackbar.LENGTH_LONG);
+               // Snackbar snackbar = Snackbar.make(CarCharingActivity.this,"Add to favourites.", Snackbar.LENGTH_LONG);
                // snackbar.show();
 
                 return true;
