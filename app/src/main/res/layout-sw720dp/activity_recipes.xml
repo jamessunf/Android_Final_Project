@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".recipe.RecipeMainActivity"
+    >
+
+
+
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/toolbar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:theme="@style/HeaderBar"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/relative_search_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <EditText
+            android:id="@+id/edit_search_box"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+
+            android:hint="@string/recipe_edit_search_box"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_toRightOf="@id/edit_search_box"
+            android:layout_marginEnd="0dp"
+            android:text="@string/recipe_edit_search_box" />
+
+    </RelativeLayout>
+
+
+
+    <ListView
+        android:id="@+id/list_recipes"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="112dp" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/fragmentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/list_recipes"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorAccent" />
+
+</RelativeLayout>
