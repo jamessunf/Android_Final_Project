@@ -2,6 +2,7 @@ package com.example.android_lab1.forex;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -181,6 +182,8 @@ public class CurrencyExchange extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_exchange_menu, menu);
@@ -196,6 +199,34 @@ public class CurrencyExchange extends AppCompatActivity {
             case R.id.exch_fav:
                 showFavoriteList();
                 break;
+            case R.id.exch_exit:
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(CurrencyExchange.this);
+
+                builder.setTitle("Confirmation");
+                builder.setMessage("Do you want to quit?");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+
+                Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show();
+
+                break;
+
 
             default:
                 break;
