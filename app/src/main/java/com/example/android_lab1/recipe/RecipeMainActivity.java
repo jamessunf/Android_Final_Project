@@ -125,6 +125,13 @@ public class RecipeMainActivity extends AppCompatActivity {
 //        });
     }
 
+    /**
+     *
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     private void tORecipe(AdapterView<?> parent, View view, int position, long id){
 
         Bundle data = new Bundle();
@@ -153,6 +160,12 @@ public class RecipeMainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //**************************************************************************************
@@ -170,6 +183,11 @@ public class RecipeMainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -178,6 +196,11 @@ public class RecipeMainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {

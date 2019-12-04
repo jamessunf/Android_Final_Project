@@ -34,7 +34,11 @@ public class farvorateAdapter extends BaseAdapter {
         return recipes.size();
     }
 
-
+    /**
+     *
+     * @param position
+     * @return
+     */
     @Override
     public Recipe getItem(int position) {
         return recipes.get(position);
@@ -46,7 +50,13 @@ public class farvorateAdapter extends BaseAdapter {
         return recipes.get(position).getID();
     }
 
-
+    /**
+     *
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);

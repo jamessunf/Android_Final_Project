@@ -45,6 +45,12 @@ public class RecipeDBO extends SQLiteOpenHelper {
         Log.i("RecipeDBO", "Database was created");
     }
 
+    /**
+     *
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("RecipeDBO", "Database upgraded from version "+ oldVersion + " to version "+ newVersion);
         dropTable(db, RECIPE_TABLE);

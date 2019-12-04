@@ -49,7 +49,13 @@ public class RecipeAdapter extends BaseAdapter {
     }
 
 
-
+    /**
+     *
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

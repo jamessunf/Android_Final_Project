@@ -57,6 +57,13 @@ public class RecipeSingleFragment extends Fragment {
         position = data.getInt("position");
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         frameView = inflater.inflate(R.layout.activity_recipe_fragment, container, false);
@@ -82,6 +89,11 @@ public class RecipeSingleFragment extends Fragment {
         return frameView;
     }
 
+    /**
+     *
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_link_actionbar, menu);
@@ -95,6 +107,11 @@ public class RecipeSingleFragment extends Fragment {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 

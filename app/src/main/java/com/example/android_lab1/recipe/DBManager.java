@@ -29,13 +29,20 @@ public class DBManager {
     private static final int SAVED_INDEX = 8;
     private static final int ID_INDEX = 9;
 
-
+    /**
+     *
+     * @param context
+     */
     private DBManager(Context context){
         dbo = new RecipeDBO(context, RecipeDBO.DB_NAME, null, RecipeDBO.DB_VERSION);
         db = dbo.getWritableDatabase();
     }
 
-
+    /**
+     *
+     * @param context
+     * @return
+     */
     public static DBManager getInstance(Context context){
         if(instance == null){
             instance = new DBManager(context);
@@ -43,15 +50,31 @@ public class DBManager {
         return instance;
     }
 
+    /**
+     *
+     * @param recipe
+     * @param table
+     * @return
+     */
     public long insertRecipe(Recipe recipe, String table){
         ContentValues cv = contentValues(recipe);
         return db.insert(table, null, cv);
     }
 
+    /**
+     *
+     * @param table
+     * @param id
+     */
     public void deleteRecipe(String table, long id){
         db.delete(table,  RecipeDBO.COL_ID + "=?", new String[]{String.valueOf(id)});
     }
 
+    /**
+     *
+     * @param recipe
+     * @return
+     */
     private ContentValues contentValues(Recipe recipe){
         ContentValues cv = new ContentValues();
         cv.put(RecipeDBO.COL_PUBLISHER, recipe.getPublisher());
@@ -100,6 +123,10 @@ public class DBManager {
         return recipes;
     }
 
+    /**
+     *
+     * @param recipe
+     */
     public void setSaved(Recipe recipe){
         ContentValues cv = new ContentValues();
         cv.put(RecipeDBO.COL_SAVED, recipe.saved()?1:0);

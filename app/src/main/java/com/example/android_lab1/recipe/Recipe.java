@@ -55,6 +55,10 @@ public class Recipe {
         setID(_id);
     }
 
+    /**
+     *
+     * @param data
+     */
     public Recipe(Bundle data){
         this(
                 data.getString(PUBLISHER),

@@ -65,6 +65,13 @@ public class farvorateActivity extends AppCompatActivity {
        adapter.notifyDataSetChanged();
     }
 
+    /**
+     *
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
         Bundle data = new Bundle();
         Recipe recipe = (Recipe)parent.getItemAtPosition(position);
@@ -91,6 +98,12 @@ public class farvorateActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data) {
 //****************************************************************

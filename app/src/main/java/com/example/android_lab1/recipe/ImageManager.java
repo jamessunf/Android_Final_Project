@@ -40,6 +40,13 @@ public class ImageManager {
         return image;
     }
 
+    /**
+     *
+     * @param context
+     * @param fileName
+     * @param image
+     * @return
+     */
     public static boolean save(Context context, String fileName, Bitmap image) {
         boolean saved = false;
         if(!fileName.equals("null")) {
@@ -59,6 +66,12 @@ public class ImageManager {
         return saved;
     }
 
+    /**
+     *
+     * @param context
+     * @param fileName
+     * @return
+     */
     public static Bitmap open(Context context, String fileName) {
         Bitmap image = null;
         if(ImageManager.imageExists(context, fileName)) {
@@ -72,7 +85,12 @@ public class ImageManager {
         return image;
     }
 
-
+    /**
+     *
+     * @param context
+     * @param fileName
+     * @return
+     */
     public static boolean delete(Context context, String fileName){
         File file = new File(context.getFilesDir(), fileName);
         boolean deleted = false;
