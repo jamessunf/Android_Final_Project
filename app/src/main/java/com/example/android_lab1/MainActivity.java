@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import com.example.android_lab1.carcharing_locations.CarCharingActivity;
 import com.example.android_lab1.carcharing_locations.EmptyActivity;
-import com.example.android_lab1.forex.forexActivity;
+import com.example.android_lab1.forex.ActivityCurrency;
+import com.example.android_lab1.forex.ActivityCurrency;
 
 import com.example.android_lab1.news.NewsMainActivity;
 import com.example.android_lab1.forex.CurrencyExchange;

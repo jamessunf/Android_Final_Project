@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.android_lab1.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -139,6 +141,13 @@ public class CurrencyExchange extends AppCompatActivity {
 
         convertNumber = (EditText) findViewById(R.id.convert_number);
 
+        bExchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         bExchange.setOnClickListener(click -> {
                     try {
 
@@ -154,9 +163,22 @@ public class CurrencyExchange extends AppCompatActivity {
                 }
         );
         //save to favorite list
-        bSave.setOnClickListener(click ->{
-            saveFavoriteList();
+
+        bSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                saveFavoriteList();
+                Snackbar.make(view,"Data save to Favorites!",Snackbar.LENGTH_LONG).show();
+                Snackbar snackbar;
+
+            }
         });
+
+
+
+
+
     }
 
     @Override
@@ -270,6 +292,7 @@ public class CurrencyExchange extends AppCompatActivity {
                 double toRate = jObject.getDouble("to");
                 Log.d("From Rate" , "Value : "+ Double.toString(fromRate));
                 Log.d("To Rate" , "Value : "+ Double.toString(toRate));
+                Toast.makeText(CurrencyExchange.this,"From Rate:" + fromRate + " to " + toRate,Toast.LENGTH_SHORT).show();
                 //rate is EUR based, set default if EUR
                 double exRate = fromRate/toRate;
                 double reverseRate = toRate/fromRate;
@@ -290,6 +313,8 @@ public class CurrencyExchange extends AppCompatActivity {
                 oonverAmount *= reverseRate;
                 exchangeAmount = findViewById(R.id.convert_amount);
                 Log.d("Amount Converted" , "value" + oonverAmount);
+                Toast.makeText(CurrencyExchange.this,"Amount Converted, value:" + oonverAmount,Toast.LENGTH_SHORT).show();
+
                 exchangeAmount.setText(String.format("Exchange Amount is  : %.8f", oonverAmount));
 
             } catch (JSONException e) {

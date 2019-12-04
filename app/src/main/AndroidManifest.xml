@@ -41,14 +41,13 @@
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".recipe.RecipeMainActivity" />
         <activity android:name=".carcharing_locations.CarCharingActivity" />
-        <activity android:name=".carcharing_locations.FavourActivity"/>
-        <activity android:name=".carcharing_locations.EmptyActivity"/>
+
 
         <activity android:name=".recipe.farvorateActivity" />
         <activity android:name=".recipe.RecipeSingleActivity" />
 
 
-        <activity android:name=".forex.forexActivity"/>
+
         <activity android:name=".news.NewsMainActivity"/>
         <activity android:name=".news.NewsWebArticleActivity"/>
         <activity android:name=".MainActivity">
